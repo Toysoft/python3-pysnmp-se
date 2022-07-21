@@ -54,9 +54,9 @@ def cbFun(tsp, metaReq, (wholeMsg, transportAddr)):
     else:
         # Report unsupported request type
         rsp.apiAlphaGetPdu().apiAlphaSetErrorStatus(5)
-        print '%s (version ID %s) from %s: unsupported request type' % \
+        print('%s (version ID %s) from %s: unsupported request type' % \
               (req.apiAlphaGetPdu().apiAlphaGetPduType(), \
-               req.apiAlphaGetProtoVersionId(), transportAddr)
+               req.apiAlphaGetProtoVersionId(), transportAddr))
     
     # Return response object & manager's address
     return (rsp.berEncode(), transportAddr)

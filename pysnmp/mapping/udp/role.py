@@ -18,7 +18,7 @@ class Manager:
         if host is not None:
             try:
                 host = socket.gethostbyname(host)
-            except socket.error, why:
+            except socket.error as why:
                 raise error.NetworkError('gethostbyname() failed: %s' % why)
         self.agent = (host, port)
 
@@ -59,7 +59,7 @@ class Manager:
         try:
             self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-        except socket.error, why:
+        except socket.error as why:
             raise error.NetworkError('%s: socket() error: %s' %\
                                      (self.__class__.__name__, why))
 
@@ -67,7 +67,7 @@ class Manager:
         try:
             self.socket.bind(self.iface)
 
-        except socket.error, why:
+        except socket.error as why:
             raise error.NetworkError('%s: bind() error: %s: %s' % \
                                      (self.__class__.__name__, \
                                       self.iface, why))
@@ -90,7 +90,7 @@ class Manager:
         try:
             self.socket.sendto(request, dst)
             
-        except socket.error, why:
+        except socket.error as why:
             raise error.NetworkError('%s: sendto() to %s error: %s' % \
                                      (self.__class__.__name__, dst, why))
 
@@ -113,7 +113,7 @@ class Manager:
         try:
             (message, src) = self.socket.recvfrom(65536)
 
-        except socket.error, why:
+        except socket.error as why:
             raise error.NetworkError('%s: recv() error: %s' % \
                                      (self.__class__.__name__, why))
 
@@ -224,7 +224,7 @@ class Manager:
             try:
                 self.socket.close()
 
-            except socket.error, why:
+            except socket.error as why:
                 raise error.NetworkError('%s: close() error: %s' % \
                                          (self.__class__.__name__, why))
 
@@ -237,8 +237,9 @@ manager = Manager
 class Agent:
     """Network client: receive requests, send back responses
     """
-    def __init__(self, (cbFun, cbCtx)=(None, None),
+    def __init__(self, cbFun_cbCtx=(None, None),
                  ifaces=[('0.0.0.0', 161)]):
+        cbFun, cbCtx = cbFun_cbCtx
         # Block on select() waiting for request by default
         self.timeout = None
 
@@ -280,7 +281,7 @@ class Agent:
         try:
             self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-        except socket.error, why:
+        except socket.error as why:
             raise error.NetworkError('%s: socket() error: %s' % \
                                      (self.__class__.__name__, why))
 
@@ -289,7 +290,7 @@ class Agent:
             try:
                 self.socket.bind(iface)
 
-            except socket.error, why:
+            except socket.error as why:
                 raise error.NetworkError('%s: bind() error: %s: %s' % \
                                          (self.__class__.__name__, iface, why))
 
@@ -310,7 +311,7 @@ class Agent:
         try:
             self.socket.sendto(message, dst)
                 
-        except socket.error, why:
+        except socket.error as why:
             raise error.NetworkError('%s: send() error: %s' % \
                                      (self.__class__.__name__, why))
 
@@ -332,7 +333,7 @@ class Agent:
         try:
             (message, peer) = self.socket.recvfrom(65536)
 
-        except socket.error, why:
+        except socket.error as why:
             raise error.NetworkError('%s: recvfrom() error: %s' % \
                                      (self.__class__.__name__, why))
 
@@ -367,7 +368,8 @@ class Agent:
         raise error.IdleTimeoutError('%s: no request arrived before timeout' %
                                      self.__class__.__name__)
     
-    def receiveAndSend(self, (cbFun, cbCtx)=(None, None)):
+    def receiveAndSend(self, cbFun_cbCtx=(None, None)):
+        cbFun, cbCtx = cbFun_cbCtx
         """
            receive_and_send((cbFun, cbCtx))
            
@@ -414,7 +416,7 @@ class Agent:
             try:
                 self.socket.close()
 
-            except socket.error, why:
+            except socket.error as why:
                 raise error.NetworkError('%s: close() error: %s' %
                                          (self.__class__.__name__, why))
 

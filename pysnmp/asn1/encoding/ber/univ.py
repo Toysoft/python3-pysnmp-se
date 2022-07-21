@@ -60,7 +60,7 @@ class IntegerMixIn(base.SimpleAsn1Object):
             result = '\377'
             
         elif integer < 0:
-            while integer <> -1:
+            while integer != -1:
                 (integer, result) = integer>>8, chr(integer & 0xff) + result
                 
             if ord(result[0]) & 0x80 == 0:
@@ -69,7 +69,7 @@ class IntegerMixIn(base.SimpleAsn1Object):
             while integer > 0:
                 (integer, result) = integer>>8, chr(integer & 0xff) + result
                 
-            if (ord(result[0]) & 0x80 <> 0):
+            if (ord(result[0]) & 0x80 != 0):
                 result = chr(0x00) + result
 
         return result
@@ -85,9 +85,9 @@ class IntegerMixIn(base.SimpleAsn1Object):
             raise error.BadEncodingError('Empty value at %s' % \
                                          self.__class__.__name__)
         if bytes[0] & 0x80:
-            bytes.insert(0, -1L)
+            bytes.insert(0, -1)
 
-        result = reduce(lambda x,y: x<<8 | y, bytes, 0L)
+        result = reduce(lambda x,y: x<<8 | y, bytes, 0)
 
         try:
             return int(result)
@@ -152,7 +152,7 @@ class ObjectIdentifierMixIn(base.SimpleAsn1Object):
         try:
             if cls.BER_FORWARD_CACHE.has_key( oid ):
                 return cls.BER_FORWARD_CACHE[ oid ]
-        except TypeError, err:
+        except TypeError as err:
             pass
         # Make sure the Object ID is long enough
         if len(oid) < 2:
@@ -180,7 +180,7 @@ class ObjectIdentifierMixIn(base.SimpleAsn1Object):
                 # Optimize for the common case
                 result.append('%c' % (subid & 0x7f))
 
-            elif subid < 0 or subid > 0xFFFFFFFFL:
+            elif subid < 0 or subid > 0xFFFFFFFF:
                 raise error.BadArgumentError('SubId overflow %s for %s' %\
                                              (str(subid), \
                                               cls.__name__))

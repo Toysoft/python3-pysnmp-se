@@ -33,7 +33,8 @@ class BerObject:
     # A placeholders for ASN.1-defined attributes XXX
     tagClass = tagFormat = tagId = 0
     
-    def berEncodeTag(self, (tagClass, tagFormat, tagId) = (None, None, None)):
+    def berEncodeTag(self, tagClass_tagFormat,_tagId = (None, None, None)):
+        tagClass, tagFormat, tagId = tagClass_tagFormat,_tagId
         """BER encode ASN.1 type tag
         """
         if tagClass is None:
@@ -361,7 +362,7 @@ class SingleFixedTypeAsn1Object(FixedTypeAsn1Object):
                 try:
                     input = choiceComponent.berDecode(input)
                 # XXX narrow exception filter
-                except Asn1Error, why:
+                except Asn1Error as why:
                     continue
                 self[choiceName] = choiceComponent
                 return input

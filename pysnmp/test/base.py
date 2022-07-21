@@ -32,7 +32,9 @@ class SnmpEntityTestCase(unittest.TestCase):
         self.manager.close()
         self.agent = self.manager = None
 
-    def __agentCbFun(self, tsp, cbCtx, (oStream, srcAddr), (t, v, tb)):
+    def __agentCbFun(self, tsp, cbCtx, oStream_srcAddr, t_v_tb):
+        oStream, srcAddr = oStream_srcAddr
+        t, v, tb = t_v_tb
         assert not t, (t, v, tb)
         self.agentInMsgs = self.agentInMsgs + 1
         f = getattr(self, 'agentCbFun', None)
@@ -46,7 +48,9 @@ class SnmpEntityTestCase(unittest.TestCase):
                 rspMsg.apiAlphaSetPdu(rspPdu)
                 self.agent.send(rspMsg.berEncode(), srcAddr)
         
-    def __managerCbFun(self, tsp, cbFun, (oStream, srcAddr), (t, v, tb)):
+    def __managerCbFun(self, tsp, cbFun, oStream_srcAddr, t_v_tb):
+        oStream, srcAddr = oStream_srcAddr
+        t, v, tb = t_v_tb
         assert not t, (t, v, tb)
         rspMsg = self.snmpProto.Message(); rspMsg.berDecode(oStream)
         assert rspMsg.apiAlphaGetCommunity() == self.communityName

@@ -22,7 +22,7 @@ class Integer(rfc1155.Integer):
     """
     # Subtyping -- value range constraint
     constraints = (
-        constraints.ValueRangeConstraint(-2147483648L, 2147483647L),
+        constraints.ValueRangeConstraint(-2147483648, 2147483647),
     )
 
 class Integer32(Integer):
@@ -95,7 +95,7 @@ class Counter64(rfc1155.Counter):
 
     # Subtyping -- value range constraint
     constraints = (
-			constraints.ValueRangeConstraint(0, 18446744073709551615L),
+			constraints.ValueRangeConstraint(0, 18446744073709551615),
 		)
 
 class Bits(OctetString):

@@ -64,41 +64,41 @@ class CompatBase:
 
         # Catch snmp package exceptions
 
-        except pysnmp.proto.error.BadArgumentError, why:
+        except pysnmp.proto.error.BadArgumentError as why:
             raise BadArgument(why)
        
-        except pysnmp.proto.error.ProtoError, why:
+        except pysnmp.proto.error.ProtoError as why:
             raise Error(why)        
 
         # Catch ber package exceptions
         
-        except pysnmp.asn1.encoding.ber.error.BadArgumentError, why:
+        except pysnmp.asn1.encoding.ber.error.BadArgumentError as why:
             raise asn1.BadArgument(why)
 
-        except pysnmp.asn1.encoding.ber.error.TypeMismatchError, why:
+        except pysnmp.asn1.encoding.ber.error.TypeMismatchError as why:
             raise asn1.UnknownTag(why)
 
-        except pysnmp.asn1.encoding.ber.error.OverFlowError, why:
+        except pysnmp.asn1.encoding.ber.error.OverFlowError as why:
             raise asn1.OverFlow(why)
 
-        except pysnmp.asn1.encoding.ber.error.UnderRunError, why:
+        except pysnmp.asn1.encoding.ber.error.UnderRunError as why:
             raise asn1.UnderRun(why)
 
-        except pysnmp.asn1.encoding.ber.error.BadEncodingError, why:
+        except pysnmp.asn1.encoding.ber.error.BadEncodingError as why:
             raise asn1.BadEncoding(why)
 
-        except pysnmp.asn1.encoding.ber.error.BerEncodingError, why:
+        except pysnmp.asn1.encoding.ber.error.BerEncodingError as why:
             raise asn1.Error(why)
 
         # Catch asn1 package exceptions
         
-        except pysnmp.asn1.error.BadArgumentError, why:
+        except pysnmp.asn1.error.BadArgumentError as why:
             raise asn1.BadArgument(why)
 
-        except pysnmp.asn1.error.ValueConstraintError, why:
+        except pysnmp.asn1.error.ValueConstraintError as why:
             raise asn1.TypeError(why)
 
-        except pysnmp.asn1.error.Asn1Error, why:
+        except pysnmp.asn1.error.Asn1Error as why:
             raise asn1.Error(why)
 
     def __str__(self):
@@ -151,10 +151,10 @@ class CompatBase:
         try:
             return self._wrapper_fun(self._decode_fun, data)
 
-        except asn1.BadEncoding, why:
+        except asn1.BadEncoding as why:
             raise BadEncoding(why)
 
-        except asn1.UnknownTag, why:
+        except asn1.UnknownTag as why:
             raise BadPDUType(why)
 
     def _encode_fun(self, kwdict):

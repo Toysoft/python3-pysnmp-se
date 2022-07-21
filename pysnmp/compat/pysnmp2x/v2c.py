@@ -37,13 +37,13 @@ class CompatBase(v1.CompatBase):
         try:
             return apply(v1.CompatBase._wrapper_fun, [self, fun ] + list(args))
 
-        except v1.BadPDUType, why:
+        except v1.BadPDUType as why:
             raise BadPDUType(why)
 
-        except v1.BadVersion, why:
+        except v1.BadVersion as why:
             raise BadVersion(why)
 
-        except v1.BadEncoding, why:
+        except v1.BadEncoding as why:
             raise BadEncoding(why)
 
     def _setitem_fun(self, key, value):
@@ -92,10 +92,10 @@ class CompatBase(v1.CompatBase):
         try:
             return v1.CompatBase.decode(self, data)
 
-        except v1.BadEncoding, why:
+        except v1.BadEncoding as why:
             raise BadEncoding(why)
 
-        except v1.BadPDUType, why:
+        except v1.BadPDUType as why:
             raise BadPDUType(why)
 
 class _CompatRequest(CompatBase):

@@ -28,7 +28,7 @@ class Boolean(base.SimpleAsn1Object):
     constraints = (
             constraints.SingleValueConstraint( 0, 1 ),
         )
-    initialValue = 0L
+    initialValue = 0
 
     # Disable not applicible constraints
     _subtype_value_range_constraint = None
@@ -93,7 +93,7 @@ class Integer(base.SimpleAsn1Object):
     """
     tagId = 0x02
     allowedTypes = ( IntType, LongType )
-    initialValue = 0L
+    initialValue = 0
 
     # Disable not applicible constraints
     _subtype_size_constraint = None
@@ -388,7 +388,7 @@ class Null(base.SimpleAsn1Object):
     tagId = 0x05
     allowedTypes = ( IntType, LongType, StringType, NoneType )
     constraints = (
-        constraints.SingleValueConstraint( 0, 0L, '', None ),
+        constraints.SingleValueConstraint( 0, 0, '', None ),
     )
     initialValue = ''
 

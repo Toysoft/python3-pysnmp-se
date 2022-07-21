@@ -451,7 +451,7 @@ class ChoiceTypeAsn1Object(FixedTypeAsn1Object):
             idx = self._names.index(key)
 
         except ValueError:
-            raise KeyError, str(key)
+            raise(KeyError, str(key))
 
         else:
             del self._names[idx]
@@ -499,7 +499,7 @@ class AnyTypeAsn1Object(FixedTypeAsn1Object):
             idx = self._names.index(key)
 
         except ValueError:
-            raise KeyError, str(key)
+            raise(KeyError, str(key))
 
         else:
             del self._names[idx]

@@ -38,7 +38,7 @@ class InitialRequestIdMixIn:
         try:
             self.set(globalRequestId)
         except pysnmp.asn1.error.ValueConstraintError:
-            globalRequestId = 0L
+            globalRequestId = 0
             self.set(globalRequestId)
         else:
             globalRequestId = globalRequestId + 1

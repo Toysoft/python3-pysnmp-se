@@ -44,7 +44,7 @@ class ChoiceMixIn:
             else:
                 try:
                     self[key] = value
-                except BadArgumentError, why:
+                except BadArgumentError as why:
                     continue
             break
         else:

@@ -40,7 +40,7 @@ class GetNextAppMixIn:
                 self.__gotReply = 1
                 tblIndices =  apply(
                     reqPdu.apiAlphaGetTableIndices, [ rspPdu ] \
-                    + map(lambda (o, v): o, self.mgrOidVals)
+                    + map(lambda o, v: o, self.mgrOidVals)
                     )
                 for idx in filter(lambda x: x==-1, tblIndices[-1]):
                     del self.mgrOidVals[idx]
@@ -48,7 +48,7 @@ class GetNextAppMixIn:
                     self.__EOM = 1
                     return 1
                 apply(reqPdu.apiAlphaSetVarBindList, \
-                      map(lambda (o, v): (o.get(), None), \
+                      map(lambda o, v: (o.get(), None), \
                           map(lambda cellIdx, \
                               varBindList=rspPdu.apiAlphaGetVarBindList(): \
                               varBindList[cellIdx].apiAlphaGetOidVal(), \
@@ -57,7 +57,7 @@ class GetNextAppMixIn:
                 return 1
 
         apply(reqPdu.apiAlphaSetVarBindList, \
-              map(lambda (o, v): (o.get(), None), self.mgrOidVals))
+              map(lambda o, v: (o.get(), None), self.mgrOidVals))
         while not self.__EOM:
             self.__gotReply = 0
             self.managerSendAndReceive(reqPdu, cbFun)
@@ -79,7 +79,7 @@ class GetNextV2cAppTestCase(base.SnmpEntityTestCase, GetNextAppMixIn):
     snmpProto = alpha.protoVersions[alpha.protoVersionId2c]
     agtOidVals = [
         (snmpProto.ObjectName('.1.3.6.1.2.1.1.1.0'),\
-         snmpProto.Counter64(0x7fffffffffffffffl)),
+         snmpProto.Counter64(0x7fffffffffffffff)),
         (snmpProto.ObjectName('.1.3.6.1.2.1.1.2.0'),\
          snmpProto.Unsigned32(12345)),
         (snmpProto.ObjectName('.1.3.6.1.2.1.1.3.0'),\

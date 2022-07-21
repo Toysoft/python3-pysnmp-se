@@ -6,10 +6,10 @@ class GetSetAppMixIn:
     def agentCbFun(self, reqPdu):
         varBinds = map(lambda x: x.apiAlphaGetOidVal(), \
                        reqPdu.apiAlphaGetVarBindList())
-        assert map(lambda (o, v): o, varBinds) == \
-               map(lambda (o, v): o, self.oidVals), \
-               (map(lambda (o, v): o, varBinds),
-                map(lambda (o, v): o, self.oidVals))
+        assert map(lambda o, v: o, varBinds) == \
+               map(lambda o, v: o, self.oidVals), \
+               (map(lambda o, v: o, varBinds),
+                map(lambda o, v: o, self.oidVals))
         rspPdu = reqPdu.apiAlphaReply()
         apply(rspPdu.apiAlphaSetVarBindList, self.oidVals)
         return rspPdu
@@ -30,7 +30,7 @@ class GetSetAppMixIn:
     def testGet(self):
         reqPdu = self.snmpProto.GetRequestPdu()
         apply(reqPdu.apiAlphaSetVarBindList, \
-              map(lambda (o, v): (o, None), self.oidVals))
+              map(lambda o, v: (o, None), self.oidVals))
         reqPdu.decode(reqPdu.encode())
         self.__testGetAndSet(reqPdu)
 
@@ -42,7 +42,7 @@ class GetSetAppMixIn:
 class GetSetV1AppTestCase(base.SnmpEntityTestCase, GetSetAppMixIn):
     snmpProto = alpha.protoVersions[alpha.protoVersionId1]
     oidVals = [
-        ('.1.3.6.1.2.1.1.1.1.0', snmpProto.Integer(0xffffffffL)),
+        ('.1.3.6.1.2.1.1.1.1.0', snmpProto.Integer(0xffffffff)),
         ('.1.3.6.1.2.1.1.1.2.0', snmpProto.Integer(-1)),
         ('.1.3.6.1.2.1.1.2.0', snmpProto.OctetString('oops')),
         ('.1.3.6.1.2.1.1.3.1.0', snmpProto.Null(0)),
@@ -77,7 +77,7 @@ class GetSetV2cAppTestCase(base.SnmpEntityTestCase, GetSetAppMixIn):
         ('.1.3.6.1.2.1.1.10.0', snmpProto.Unsigned32(654321)),
         ('.1.3.6.1.2.1.1.11.0', snmpProto.TimeTicks(0)),
         ('.1.3.6.1.2.1.1.12.0', snmpProto.Opaque('\000\001\002')),
-        ('.1.3.6.1.2.1.1.13.0', snmpProto.Counter64(0x7fffffffffffffffl))
+        ('.1.3.6.1.2.1.1.13.0', snmpProto.Counter64(0x7fffffffffffffff))
     ]
 
 if __name__ == "__main__":

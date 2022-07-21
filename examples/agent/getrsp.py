@@ -26,7 +26,7 @@ def cbFun(tsp, metaReq, (octetStream, srcAddr)):
     else:
         # Report unsupported request type
         rsp.apiAlphaGetPdu().apiAlphaSetErrorStatus(5)
-        print reportStr + 'unsupported request type'
+        print(reportStr + 'unsupported request type')
     
     # Return response object & manager's address
     return (rsp.berEncode(), srcAddr)

@@ -23,7 +23,7 @@ def cbFun(tsp, metaReq, (wholeMsg, transportAddr)):
         for varBind in pdu.apiAlphaGetVarBindList():
             print varBind.apiAlphaGetOidVal()
     else:
-        print reportStr + 'unsupported request type'
+        print(reportStr + 'unsupported request type')
 
     return ('', transportAddr)
 

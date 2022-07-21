@@ -6,7 +6,8 @@ from pysnmp.proto import rfc1157
 from pysnmp.proto.api import error
 
 class VarBindMixIn:
-    def apiAlphaSetOidVal(self, (oid, val)):
+    def apiAlphaSetOidVal(self, oid_val):
+        oid, val = oid_val
         if oid is not None:
             self.apiAlphaSetSimpleComponent('name', oid)
         if val is not None:

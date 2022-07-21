@@ -63,14 +63,14 @@ class CompatBase:
 
         # Catch transport-speciic, timeout exceptions
 
-        except pysnmp.mapping.udp.error.NoResponseError, why:
+        except pysnmp.mapping.udp.error.NoResponseError as why:
             raise SnmpTimeout(why)
 
-        except pysnmp.mapping.udp.error.IdleTimeoutError, why:
+        except pysnmp.mapping.udp.error.IdleTimeoutError as why:
             raise SnmpTimeout(why)
 
         # Render the rest of PySNMP exceptions to one
-        except pysnmp.error.PySnmpError, why:
+        except pysnmp.error.PySnmpError as why:
             raise SnmpError(why)
 
 class snmpmibnode(CompatBase):
@@ -113,7 +113,7 @@ class snmpmibnode(CompatBase):
         elif attr == 'name':
             return self.oid
         elif attr == 'index':
-            return 0L
+            return 0
         elif attr == 'value':
             if self._value is None:
                 return None
@@ -157,7 +157,7 @@ class snmpmibnode(CompatBase):
         elif attr == 'enums':
             raise SnmpError('Feature not implemented')
 
-        raise AttributeError, attr
+        raise(AttributeError, attr)
 
     def __setattr__(self, attr, val):
         """Set certain attributes
@@ -325,7 +325,7 @@ class snmptrap(CompatBase):
             else:        
                 return miboids
 
-        raise AttributeError, attr
+        raise(AttributeError, attr)
 
     def __setattr__(self, attr, val):
         """Set certain attributes
@@ -634,7 +634,7 @@ def issuboid(miboid1, miboid2):
         else:
             return 0
 
-    except pysnmp.error.PySnmpError, why:
+    except pysnmp.error.PySnmpError as why:
         raise SnmpError(why)
 
 def merge(filename):

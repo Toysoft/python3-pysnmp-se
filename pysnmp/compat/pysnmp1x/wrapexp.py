@@ -19,50 +19,50 @@ class Base:
 
         # Catch transport exceptions
 
-        except pysnmp.mapping.udp.error.BadArgumentError, why:
+        except pysnmp.mapping.udp.error.BadArgumentError as why:
             raise error.BadArgument(why)
 
-        except pysnmp.mapping.udp.error.NoResponseError, why:
+        except pysnmp.mapping.udp.error.NoResponseErroras as why:
             raise error.NoResponse(why)
 
-        except pysnmp.mapping.udp.error.NetworkError, why:
+        except pysnmp.mapping.udp.error.NetworkErroras as why:
             raise error.TransportError(why)
         
         # Catch protocol package exceptions
 
-        except pysnmp.proto.error.BadArgumentError, why:
+        except pysnmp.proto.error.BadArgumentError as  why:
             raise error.BadArgument(why)
         
-        except pysnmp.proto.error.ProtoError, why:
+        except pysnmp.proto.error.ProtoError as why:
             raise error.SNMPEngineError(why)        
 
         # Catch ber package exceptions
         
-        except pysnmp.asn1.encoding.ber.error.BadArgumentError, why:
+        except pysnmp.asn1.encoding.ber.error.BadArgumentError as why:
             raise error.BEREngineError(why)
 
-        except pysnmp.asn1.encoding.ber.error.TypeMismatchError, why:
+        except pysnmp.asn1.encoding.ber.error.TypeMismatchError as why:
             raise error.UnknownTag(why)
 
-        except pysnmp.asn1.encoding.ber.error.OverFlowError, why:
+        except pysnmp.asn1.encoding.ber.error.OverFlowError as why:
             raise error.OverFlow(why)
 
-        except pysnmp.asn1.encoding.ber.error.UnderRunError, why:
+        except pysnmp.asn1.encoding.ber.error.UnderRunError as why:
             raise error.BadEncoding(why)
 
-        except pysnmp.asn1.encoding.ber.error.BadEncodingError, why:
+        except pysnmp.asn1.encoding.ber.error.BadEncodingError as why:
             raise error.BadEncoding(why)
 
-        except pysnmp.asn1.encoding.ber.error.BerEncodingError, why:
+        except pysnmp.asn1.encoding.ber.error.BerEncodingError as why:
             raise error.BEREngineError(why)
 
         # Catch asn1 package exceptions
         
-        except pysnmp.asn1.error.BadArgumentError, why:
+        except pysnmp.asn1.error.BadArgumentError as why:
             raise error.BadArgument(why)
 
-        except pysnmp.asn1.error.ValueConstraintError, why:
+        except pysnmp.asn1.error.ValueConstraintError as why:
             raise error.TypeMismatch(why)
 
-        except pysnmp.asn1.error.Asn1Error, why:
+        except pysnmp.asn1.error.Asn1Error as why:
             raise error.PySNMPError(why)

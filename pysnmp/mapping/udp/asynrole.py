@@ -12,8 +12,9 @@ from pysnmp.error import PySnmpError
 class Manager(asyncore.dispatcher):
     """An asynchronous SNMP manager based on the asyncore.py class.
     """
-    def __init__(self, (cbFun, cbCtx)=(None, None), dstAddr=(None, 0), \
+    def __init__(self, cbFun_cbCtx=(None, None), dstAddr=(None, 0), \
                  iface=('0.0.0.0', 0)):
+        cbFun, cbCtx = cbFun_cbCtx
         self.cbFun = cbFun; self.cbCtx = cbCtx
 
         asyncore.dispatcher.__init__(self)
@@ -21,7 +22,8 @@ class Manager(asyncore.dispatcher):
         self.manager = role.Manager(dstAddr, iface)
         self.set_socket(self.manager.open())
 
-    def send(self, reqMsg, dstAddr=(None, 0), (cbFun, cbCtx)=(None, None)):
+    def send(self, reqMsg, dstAddr=(None, 0), cbFun_cbCtx=(None, None)):
+        cbFun, cbCtx = cbFun_cbCtx
         """
            send(reqMsg[, dstAddr[, (cbFun, cbCtx)]])
            
@@ -94,7 +96,8 @@ class Agent(asyncore.dispatcher):
        Wait for and receive SNMP request messages, send SNMP response
        messages asynchronously.
     """
-    def __init__(self, (cbFun, cbCtx), ifaces=[('0.0.0.0', 161)]):
+    def __init__(self, cbFun_cbCtx, ifaces=[('0.0.0.0', 161)]):
+        cbFun, cbCtx = cbFun_cbCtx
         # Make sure we get the callback function
         if not callable(cbFun):
             raise error.BadArgumentError('Non-callable callback function')

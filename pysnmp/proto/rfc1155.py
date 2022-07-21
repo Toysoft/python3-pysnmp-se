@@ -95,7 +95,7 @@ class Counter(univ.Integer):
 
     # Subtyping -- value range constraint
     constraints = (
-        constraints.ValueRangeConstraint(0, 4294967295L),
+        constraints.ValueRangeConstraint(0, 4294967295),
     )
 
 
@@ -109,7 +109,7 @@ class Gauge(univ.Integer):
 
     # Subtyping -- value range constraint
     constraints = (
-        constraints.ValueRangeConstraint(0, 4294967295L),
+        constraints.ValueRangeConstraint(0, 4294967295),
     )
 
 class TimeTicks(univ.Integer):
@@ -121,7 +121,7 @@ class TimeTicks(univ.Integer):
 
     # Subtyping -- value range constraint
     constraints = (
-        constraints.ValueRangeConstraint(0, 4294967295L),
+        constraints.ValueRangeConstraint(0, 4294967295),
     )
 
 class Opaque(univ.OctetString):

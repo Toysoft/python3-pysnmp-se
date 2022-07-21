@@ -46,7 +46,7 @@ class BasicTests( unittest.TestCase ):
 		b = o[:3]
 		assert b == (1,2,3), b
 		assert isinstance( b, oid.OID ), b
-		assert o[4] == 5L, o[4]
+		assert o[4] == 5, o[4]
 		c = o[1:5]
 		assert c == (2,3,4,5)
 		assert not isinstance( c, oid.OID )

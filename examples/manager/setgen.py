@@ -25,7 +25,7 @@ def cbFun(wholeMsg, transportAddr, req):
     if req.apiAlphaMatch(rsp):
         errorStatus = rsp.apiAlphaGetPdu().apiAlphaGetErrorStatus()
         if errorStatus:
-            print 'Error: ', errorStatus
+            print('Error: ', errorStatus)
         else:
             for varBind in rsp.apiAlphaGetPdu().apiAlphaGetVarBindList():
                 print varBind.apiAlphaGetOidVal()

@@ -55,41 +55,41 @@ class CompatBase:
 
         # Catch protocol package exceptions
 
-        except pysnmp.proto.error.BadArgumentError, why:
+        except pysnmp.proto.error.BadArgumentError as why:
             raise BadArgument(why)
 
-        except pysnmp.proto.error.ProtoError, why:
+        except pysnmp.proto.error.ProtoError as why:
             raise Error(why)
 
         # Catch ber package exceptions
         
-        except pysnmp.asn1.encoding.ber.error.BadArgumentError, why:
+        except pysnmp.asn1.encoding.ber.error.BadArgumentError as why:
             raise BadArgument(why)
 
-        except pysnmp.asn1.encoding.ber.error.TypeMismatchError, why:
+        except pysnmp.asn1.encoding.ber.error.TypeMismatchError as why:
             raise UnknownTag(why)
 
-        except pysnmp.asn1.encoding.ber.error.OverFlowError, why:
+        except pysnmp.asn1.encoding.ber.error.OverFlowError as why:
             raise OverFlow(why)
 
-        except pysnmp.asn1.encoding.ber.error.UnderRunError, why:
+        except pysnmp.asn1.encoding.ber.error.UnderRunError as why:
             raise UnderRun(why)
 
-        except pysnmp.asn1.encoding.ber.error.BadEncodingError, why:
+        except pysnmp.asn1.encoding.ber.error.BadEncodingError as why:
             raise BadEncoding(why)
 
-        except pysnmp.asn1.encoding.ber.error.BerEncodingError, why:
+        except pysnmp.asn1.encoding.ber.error.BerEncodingError as why:
             raise Error(why)
 
         # Catch asn1 package exceptions
         
-        except pysnmp.asn1.error.BadArgumentError, why:
+        except pysnmp.asn1.error.BadArgumentError as why:
             raise BadArgument(why)
 
-        except pysnmp.asn1.error.ValueConstraintError, why:
+        except pysnmp.asn1.error.ValueConstraintError as why:
             raise TypeError(why)
 
-        except pysnmp.asn1.error.Asn1Error, why:
+        except pysnmp.asn1.error.Asn1Error as why:
             raise Error(why)
 
     def decode(self, data):

@@ -88,7 +88,7 @@ class OID( tuple ):
 		if not isinstance( other, OID ):
 			try:
 				other = self.__class__( other )
-			except Exception, err:
+			except Exception as err:
 				pass
 		return cmp(tuple(self), other )
 	def __add__( self, other ):
