@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1: Encoding: BER: Base: Methods of variable-structure objects</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Objects of variable-structure BER facility classes
+</H3>
+
+<P>
+Instances of <A HREF="base.html#OrderedVariableTypeAsn1Object">
+OrderedVariableTypeAsn1Object</A>,
+<A HREF="base.html#UnorderedVariableTypeAsn1Object">
+UnorderedVariableTypeAsn1Object</A> and classes implement the following
+public methods:
+</P>
+
+<A NAME="berEncode"></A>
+<DL>
+<DT><STRONG>berEncode</STRONG>([<STRONG>args</STRONG>])</DT>
+<DD>
+<P>
+Returns BER-encoded contents of the structured ASN.1 object (as string).
+</P>
+<P>
+The optional <STRONG>args</STRONG> argument (a list of ASN.1 class instances)
+may be used to assign a new value to this ASN.1 object prior to running BER
+encoding method against this ASN.1 object. The value of <STRONG>args</STRONG>
+should be acceptable by the ASN.1 object class this BER facility is mixed with.
+</P>
+</DD>
+</DL>
+
+<A NAME="berDecode"></A>
+<DL>
+<DT><STRONG>berDecode</STRONG>(<STRONG>octetStream</STRONG>)</DT>
+<DD>
+<P>
+Decodes <STRONG>octetStream</STRONG> (string) into the payload of the
+ASN.1 object and returns the unprocessed part of the
+<STRONG>octetStream</STRONG> (as string).
+</P>
+</DD>
+</DL>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1: Universal types: Sequence: Example</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Example of <STRONG>Sequence</STRONG> usage
+</H3>
+
+<P>
+<PRE>
+>>> from pysnmp.asn1 import univ
+>>> class MySequence(univ.Sequence):
+...     fixedNames = [ 'myint', 'mystr' ]
+...     fixedComponents = [ univ.Integer, univ.OctetString ]
+...
+>>> s = MySequence()
+>>> s
+MySequence('myint'=Integer(0L), 'mystr'=OctetString(''))
+>>> s['myint'].set(10)
+>>> s['mystr'].set('foobar')
+>>> s.items()
+[('myint', Integer(10)), ('mystr', OctetString('foobar'))]
+>>> len(s)
+2
+>>> s['myint'] = univ.Boolean()
+Traceback (innermost last):
+...
+pysnmp.asn1.error.BadArgumentError: Component type mismatch: Integer vs Boolean
+>>>
+</PRE>
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

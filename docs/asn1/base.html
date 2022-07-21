@@ -1,0 +1,208 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1: Base classes</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+Base classes for ASN.1 objects
+</H3>
+
+<P>
+The <STRONG>pysnmp.asn1.base</STRONG> module implements base classes for
+various ASN.1 types as defined by <A HREF="index.html">ASN.1 standard</A>.
+</P>
+
+<A NAME="Asn1Object"></A>
+<P>
+<DL>
+<DT>class <STRONG>Asn1Object</STRONG>()</DT>
+<DD>
+<P>
+This is the base class for all ASN.1 objects. It defines ASN.1-specific
+object properties and behaviour. See <A HREF="#Subsections">Subsections</A>
+for details.
+</P>
+</DD>
+</DL>
+
+<A NAME="SimpleAsn1Object"></A>
+<P>
+<DL>
+<DT>class <STRONG>SimpleAsn1Object</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+This is the base class for all "simple", that is non-structured ASN.1 objects.
+It's a subclass of <A HREF="#Asn1Object">Asn1Object</A> class, with
+additional methods (<A HREF="#Subsections">see below</A>) and the following
+deviations from the base class:
+<UL>
+<LI>ASN.1 tag format set to <A HREF="#tagFormats">tagFormats</A>['SIMPLE']
+</UL>
+</P>
+<P>
+The optional <STRONG>value</STRONG> argument may used to assign initial value
+to ASN.1 object. The type of <STRONG>value</STRONG> must be the same as
+accepted by particular ASN.1 object implementation.
+</P>
+</DD>
+</DL>
+
+<A NAME="RecordTypeAsn1Object"></A>
+<P>
+<DL>
+<DT>class <STRONG>RecordTypeAsn1Object</STRONG>([<STRONG>**kwargs
+</STRONG>])</DT>
+<DD>
+<P>
+This is a base class for structured ASN.1 objects holding named component
+types. It's a subclass of <A HREF="#Asn1Object">Asn1Object</A> class, with
+additional methods (<A HREF="#Subsections">see below</A>) and the following
+deviations from the base class:
+<UL>
+<LI>ASN.1 tag format set to <A HREF="#tagFormats">tagFormats</A>['CONSTRUCTED']
+</UL>
+</P>
+<P>
+Instances of this class implement mapping object protocol (Python dictionary)
+for storing and managing its component types. Embedded type names serve as
+keys while its values are references to instances of component objects.
+</P>
+<P>
+The optional <STRONG>kwargs</STRONG> keyword arguments may used to assign
+initial key-value pairs to ASN.1 object. The allowed keys and values types
+are specific to ASN.1 object implementation.
+</P>
+</DD>
+</DL>
+
+<A NAME="ChoiceTypeAsn1Object"></A>
+<P>
+<DL>
+<DT>class <STRONG>ChoiceTypeAsn1Object</STRONG>([<STRONG>**kwargs
+</STRONG>])</DT>
+<DD>
+<P>
+This is a base class for structured ASN.1 objects holding only a single named
+component chosen from a set of possible values. It's a subclass of
+<A HREF="#Asn1Object">Asn1Object</A> class, with additional methods
+(<A HREF="#Subsections">see below</A>) and the following deviations from
+the base class:
+<UL>
+<LI>ASN.1 tag format set to <A HREF="#tagFormats">tagFormats</A>['CONSTRUCTED']
+</UL>
+</P>
+<P>
+Instances of this class implement mapping object protocol (Python dictionary)
+for storing and managing its component types. Embedded type names serve as
+keys while its values are references to instances of component objects.
+</P>
+<P>
+The optional <STRONG>kwargs</STRONG> keyword arguments may used to assign
+initial key-value pair to ASN.1 object. The allowed key and value type
+is specific to ASN.1 object implementation.
+</P>
+</DD>
+</DL>
+
+<A NAME="VariableTypeAsn1Object"></A>
+<P>
+<DL>
+<DT>class <STRONG>VariableTypeAsn1Object</STRONG>([<STRONG>args</STRONG>])</DT>
+<DD>
+<P>
+This is a base class for structured ASN.1 objects holding a set of
+unnamed components of a single ASN.1 type. It's a subclass of
+<A HREF="#Asn1Object">Asn1Object</A> class, with additional methods
+(<A HREF="#Subsections">see below</A>) and the following deviations from
+the base class:
+<UL>
+<LI>ASN.1 tag format set to <A HREF="#tagFormats">tagFormats</A>['CONSTRUCTED']
+</UL>
+</P>
+<P>
+Instances of this class implement sequence object protocol (Python list)
+for storing and managing its components (class instances).
+</P>
+<P>
+The optional <STRONG>args</STRONG> argument may used to assign set of
+values (a list of class instances) to ASN.1 object. The allowed value type
+is specific to ASN.1 object implementation.
+</P>
+</DD>
+</DL>
+
+<P>
+The following set of dictionaries hold various constants as defined by the
+ASN.1 standard:
+</P>
+
+<A NAME="tagClasses"></A>
+<P>
+<DL>
+<DT><STRONG>tagClasses</STRONG></DT>
+<DD>
+<P>
+This dictionary holds ASN.1 class identifiers indexed by the following keys:
+'UNIVERSAL', 'APPLICATION', 'CONTEXT', 'PRIVATE'.
+</P>
+</DD>
+</DL>
+
+<A NAME="tagFormats"></A>
+<P>
+<DL>
+<DT><STRONG>tagFormats</STRONG></DT>
+<DD>
+<P>
+This dictionary holds ASN.1 tag formats indexed by the following keys:
+'SIMPLE', 'CONSTRUCTED'.
+</P>
+</DD>
+</DL>
+
+<A NAME="tagCategories"></A>
+<P>
+<DL>
+<DT><STRONG>tagCategories</STRONG></DT>
+<DD>
+<P>
+This dictionary holds ASN.1 tag category identifiers (tagging methods) indexed
+by the following keys: 'IMPLICIT', 'EXPLICIT', 'UNTAGGED'.
+</P>
+</DD>
+</DL>
+
+<P>
+Methods of the above classes may raise exceptions based on
+<STRONG>error.Asn1Error</STRONG> base class.
+</P>
+
+<HR><STRONG>Subsections</STRONG>
+
+<A NAME="Subsections"></A>
+
+<P>
+<UL>
+<LI><A HREF="base-asn1-objects.html">
+Objects of Asn1Object class.</A>
+<LI><A HREF="base-simpleasn1-objects.html">
+Objects of SimpleAsn1Object class.</A>
+<LI><A HREF="base-recordtypeasn1-objects.html">
+Objects of RecordTypeAsn1Object class.</A>
+<LI><A HREF="base-choicetypeasn1-objects.html">
+Objects of ChoiceTypeAsn1Object class.</A>
+<LI><A HREF="base-variabletypeasn1-objects.html">
+Objects of VariableTypeAsn1Object class.</A>
+</UL>
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

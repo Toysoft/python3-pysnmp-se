@@ -1,0 +1,162 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: I/O engine: asyncore binding</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+PySNMP binding to asyncore module
+</H3>
+<P>
+The <STRONG>pysnmp.mapping.udp.asynrole</STRONG> module implements
+the <STRONG>Manager</STRONG> and <STRONG>Agent</STRONG> classes, 
+representing SNMP manager and agent roles in a SNMP entity. These classes
+implement network client (manager) and server (agent) built on top of Sam
+Rushing's
+<A HREF="http://www.nightmare.com/medusa/index.html">asyncore</A> framework,
+which is a part of Python distribution these days.
+</P>
+<P>
+The most important feature of an asynchronous I/O engine is that it can
+exchange data over many BSD sockets (not necessarily SNMP parties) without
+blocking on a temporarily delayed I/O operation.
+</P>
+<P>
+The <STRONG>asynrole</STRONG> code is a pure network transport
+facility -- it deals with abstract data chunks and has nothing to know about
+SNMP context. In order to build a complete SNMP entity, SNMP protocol
+processing code should be added. See
+(<A HREF="../../proto/index.html#HighLevelApi">SNMP protocol modules</A>
+for that.
+</P>
+<P>
+The <STRONG>pysnmp.asynrole</STRONG> module defines the following classes
+which derive from <STRONG>asyncore.dispatcher</STRONG> base:
+</P>
+<DL>
+<DT>class <STRONG>Manager</STRONG>((<STRONG>cbFun</STRONG>, <STRONG>cbCtx</STRONG>)[, <STRONG>dstAddr</STRONG>[, <STRONG>iface</STRONG>]])</DT>
+<DD>
+<P>
+Returns a new instance of the <STRONG>Manager</STRONG> class, representing
+asynchronous I/O client (optionally connected to a network server running at
+<STRONG>dstAddr</STRONG> address) to be used to talk to one or more servers
+over its own, single BSD socket.
+</P>
+<P>
+The <STRONG>cbFun</STRONG> and <STRONG>cbCtx</STRONG> parameters are
+described at the
+<A HREF="asynrole-objects-manager.html#send">Manager.send</A> method
+section. Do not pass your <STRONG>cbFun</STRONG> and <STRONG>cbCtx</STRONG>
+from here, better set it to (None, None). This interface exists for
+compatibility reasons.
+</P>
+
+<P>
+The <STRONG>dstAddr</STRONG> argument, whenever given, must follow the
+<STRONG>socket</STRONG> module notation -- ('<STRONG>hostname</STRONG>',
+<STRONG>port</STRONG>) where hostname a string and port is an integer.
+</P>
+<P>
+The default for <STRONG>dstAddr</STRONG> is (None, None) what means no default
+destination, so user would unconditionally have to specify destination to
+each <STRONG>Manager.send()</STRONG> method (see below).
+</P>
+<P>
+Once a default <STRONG>dstAddr</STRONG> is specified, specific destination
+may not be given to the <STRONG>Manager.send()</STRONG> method.
+</P>
+<P>
+The <STRONG>iface</STRONG> parameter, if given, specifies the interface and
+port on local machine to <STRONG>bind()</STRONG> to. This argument must also
+follow the <STRONG>socket</STRONG> module notation. All further messages would
+then be originated from the given interface/port.
+</P>
+<P>
+The default for <STRONG>iface</STRONG> is ('0.0.0.0', 0) stands for binding
+to a primary interface at the local machine.
+</P>
+</DD>
+</DL>
+
+<DL>
+<DT>class <STRONG>Agent</STRONG>((<STRONG>cbFun</STRONG>,
+ <STRONG>cbCtx</STRONG>)[,<STRONG>ifaces</STRONG>]])</DT>
+<DD>
+<P>
+Returns a new instance of the <STRONG>Agent</STRONG> class, representing
+asynchronous I/O server optionally bound to specific network interfaces/ports
+<STRONG>ifaces</STRONG> at the local machine. One instance of the
+<STRONG>Agent</STRONG> class would talk to many clients over a single BSD
+socket.
+</P>
+<P>
+The <STRONG>cbFun</STRONG> argument must be a reference to a callback
+function to be invoked by <STRONG>asyncore</STRONG> on data arrival. This
+function must support the following API:
+</P>
+<P>
+<STRONG>cbFun</STRONG>(<STRONG>cbCtx</STRONG>, (<STRONG>srcAddr</STRONG>,
+<STRONG>reqMsg</STRONG>), (<STRONG>excType</STRONG>, <STRONG>excValue</STRONG>,
+<STRONG>excTraceback</STRONG>))
+</P>
+<P>
+where:
+</P>
+<UL>
+<LI><STRONG>cbCtx</STRONG> is a reference to the same Python object as passed
+by user on <STRONG>asynrole.Agent</STRONG> class instaniation
+<LI>(<STRONG>srcAddr</STRONG>, <STRONG>reqMsg</STRONG>) is a request tuple
+holding source address (in <STRONG>socket</STRONG> module notation) and
+request data
+<STRONG>reqMsg</STRONG> (string) respectively
+<LI>(<STRONG>excType</STRONG>, <STRONG>excValue</STRONG>,
+<STRONG>excTraceback</STRONG>) parameters represent exception details,
+whenever happened, as provided by the <STRONG>sys</STRONG> module.
+</UL>
+<P>
+The <STRONG>cbFun</STRONG>() function will be invoked by asyncore
+on data arrival as well as on error.
+</P>
+<P>
+The <STRONG>ifaces</STRONG> argument, whenever given, must be a list of
+('<STRONG>ifacename</STRONG>', <STRONG>port</STRONG>) tuples
+(<STRONG>socket</STRONG> module notation).
+</P>
+<P>
+The default for the <STRONG>ifaces</STRONG> is to listen on the loopback
+interface, port 161/UDP, so the default value is [('127.0.0.1', 161)].
+</P>
+</DD>
+</DL>
+
+<DL>
+<DT>exception <STRONG>Error</STRONG></DT>
+<DD>
+<P>
+Exception raised on any error in the <STRONG>pysnmp.asynrole</STRONG> module,
+as well as in its  base (<STRONG>pysnmp.role</STRONG>) and derivative modules.
+This exception class is a subclass of the <STRONG>pysnmp.role</STRONG> class.
+</P>
+</DD>
+</DL>
+
+<HR><STRONG>Subsections</STRONG>
+
+<P>
+<UL>
+<LI><A HREF="asynrole-objects-manager.html">
+Objects of the asynrole.Manager class</A>
+<LI><A HREF="asynrole-objects-agent.html">
+Objects of the asynrole.Agent class</A>
+</UL>
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

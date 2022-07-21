@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1: Universal types: Integer: methods</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Objects of the <STRONG>univ.Integer</STRONG> class
+</H3>
+
+<P>
+Instances of <A HREF="univ.html#Integer">univ.Integer</A> class implement
+Python numeric object protocol by means of the following additional methods:
+</P>
+
+<A NAME="__add__"></A>
+<A NAME="__sub__"></A>
+<A NAME="__mul__"></A>
+<A NAME="__div__"></A>
+<A NAME="__mod__"></A>
+<A NAME="__pow__"></A>
+<A NAME="__lshift__"></A>
+<A NAME="__rshift__"></A>
+<A NAME="__and__"></A>
+<A NAME="__or__"></A>
+<A NAME="__xor__"></A>
+<DL>
+<DT><STRONG>__add__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__sub__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__mul__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__div__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__mod__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__pow__</STRONG>(<STRONG>value</STRONG>[,<STRONG>modulo
+</STRONG>])</DT>
+<DT><STRONG>__lshift__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__rshift__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__and__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__or__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__xor__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+These methods implement the binary arithmetic operations (+, -, *, /,
+%, pow **, <<, >>, &, ^, |) against the <STRONG>value</STRONG>
+and return a instance of <STRONG>Integer</STRONG> object initialized to the
+result of the arithmetic operation.
+</P>
+</DD>
+</DL>
+
+<A NAME="__radd__"></A>
+<A NAME="__rsub__"></A>
+<A NAME="__rmul__"></A>
+<A NAME="__rdiv__"></A>
+<A NAME="__rmod__"></A>
+<A NAME="__rpow__"></A>
+<A NAME="__rlshift__"></A>
+<A NAME="__rrshift__"></A>
+<A NAME="__rand__"></A>
+<A NAME="__ror__"></A>
+<A NAME="__rxor__"></A>
+<DL>
+<DT><STRONG>__radd__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__rsub__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__rmul__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__rdiv__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__rmod__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__rpow__</STRONG>(<STRONG>value</STRONG>[,<STRONG>modulo
+</STRONG>])</DT>
+<DT><STRONG>__rlshift__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__rrshift__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__rand__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__ror__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__rxor__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+These methods implement the binary arithmetic operations (+, -, *, /,
+%, pow **, <<, >>, &, ^, |) against the <STRONG>value</STRONG> with reflected
+(swapped) operands, and return a instance of <STRONG>Integer</STRONG> object
+initialized to the result of the arithmetic operation.
+</P>
+</DD>
+</DL>
+
+<A NAME="__iadd__"></A>
+<A NAME="__isub__"></A>
+<A NAME="__imul__"></A>
+<A NAME="__idiv__"></A>
+<A NAME="__imod__"></A>
+<A NAME="__ipow__"></A>
+<A NAME="__ilshift__"></A>
+<A NAME="__irshift__"></A>
+<A NAME="__iand__"></A>
+<A NAME="__ior__"></A>
+<A NAME="__ixor__"></A>
+<P>
+The folowing set of methods can be called only by Python version 1.6
+and later.
+</P>
+<DL>
+<DT><STRONG>__iadd__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__isub__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__imul__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__idiv__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__imod__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__ipow__</STRONG>(<STRONG>value</STRONG>[,<STRONG>modulo
+</STRONG>])</DT>
+<DT><STRONG>__ilshift__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__irshift__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__iand__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__ior__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__ixor__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+These methods implement in-place arithmetic operations (+=, -=, *=, /=,
+%=, **=, <<=, >>=, &=, ^=, |=) against the <STRONG>value</STRONG>
+and return an instance of ourselves (self).
+</P>
+</DD>
+</DL>
+
+<A NAME="__int__"></A>
+<A NAME="__long__"></A>
+<A NAME="__float__"></A>
+<DL>
+<DT><STRONG>__int__</STRONG>()</DT>
+<DT><STRONG>__long__</STRONG>()</DT>
+<DT><STRONG>__float__</STRONG>()</DT>
+<DD>
+<P>
+Returns a value of the appropriate type.
+</P>
+</DD>
+</DL>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

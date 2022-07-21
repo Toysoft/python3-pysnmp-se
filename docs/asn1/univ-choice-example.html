@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1: Universal types: Choice: Example</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Example of <STRONG>Choice</STRONG> usage
+</H3>
+
+<P>
+<PRE>
+>>> from pysnmp.asn1 import univ
+>>> class MyChoice(univ.Choice):
+...     choiceNames = [ 'myint', 'mystr' ]
+...     choiceComponents = [ univ.Integer, univ.OctetString ]
+...     initialComponent = univ.Integer
+...
+>>> c = MyChoice()
+>>> c
+MyChoice('myint'=Integer(0L))
+>>> c['myint'].set(10)
+>>> c.items()
+[('myint', Integer(10))]
+>>> c['mystr'] = univ.OctetString('foobar')
+>>> c
+MyChoice('mystr'=OctetString('foobar'))
+>>> len(c)
+1
+>>> c['myint'] = univ.Boolean()
+Traceback (innermost last):
+...
+pysnmp.asn1.error.BadArgumentError: Unexpected component type Boolean at MyChoice
+>>>
+</PRE>
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

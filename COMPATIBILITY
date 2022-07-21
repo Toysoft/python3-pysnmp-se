@@ -1,0 +1,51 @@
+Backward compatibility of PySNMP 3.5.x (a.k.a. PySNMP-SE)
+------------------------------------
+
+PySNMP-SE is a speed-focused series of patches to the 
+PySNMP 3.4.x branch.  While many of these enhancements 
+are being built into PySNMP 4.x, that software will not be 
+ready for experiemental use for a considerable period.
+
+One of the most beneficial patches involved replaces OID 
+values, which were previously represented as strings, with 
+OID objects (derivatives of tuples).  This has consequences
+for user code, as PySNMP will now *return* these OID 
+objects instead of strings when returning result-sets.  User
+code should likely use pysnmp.asn1.oid.OID( value ) in order 
+to convert an OID to the canonical form and then use that 
+form when communicating with PySNMP in order to avoid
+any potential problems with hash-incompatibilities.
+
+Backward compatibility of PySNMP 3.x
+------------------------------------
+
+In its 3.x reincarnation, the PySNMP software underwent a major re-write of
+it internals for a more accurate, standards compliant and extensible
+implementation. Complete compatibility with all previous PySNMP revisions,
+at documented API level, is preserved by means of compatibility sub-packages
+(pysnmp/compat/).
+
+That is, an application relying on a PySNMP 2.x API, to make use of PySNMP 3.x
+code, should either:
+
+* Modify Python modules search path ($PYTHONPATH) to refer to compatibility
+  modules (.../pysnmp/compat/pysnmp2x/) instead of their native 2.x 
+  counterparts.
+
+* Modify application `import' operator to make it importing compatibility
+  modules.
+
+  For example:
+
+>>>from pysnmp import asn1, v1, v2c
+>>>from pysnmp import role
+
+import their compatibility comterparts of PySNMP 3.x in the following way:
+
+>>>from pysnmp.compat.pysnmp2x import asn1, v1, v2c
+>>>from pysnmp.compat.pysnmp2x import role
+
+If anything in 3.x release still appears to be incompatible with either 1.x
+or 2.x PySNMP revisions, please, let me know so I will do my best to fix it.
+=-=-=
+mailto: ilya@glas.net

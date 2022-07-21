@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Transport Mappings: UDP/IP: Synchronous: Manager: Objects</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+Objects of the <STRONG>role.Manager</STRONG> class
+</H3>
+
+<P>
+The instances of <STRONG>Manager</STRONG> class have the following methods:
+</P>
+
+<DL>
+<DT><STRONG>sendAndReceive</STRONG>(<STRONG>reqMsg</STRONG>[, <STRONG>dstAddr</STRONG>, [(<STRONG>cbFun</STRONG>, <STRONG>cbCtx</STRONG>)]])</DT>
+<DD>
+<P>
+Attempt to send request message <STRONG>reqMsg</STRONG> (string) to remote
+server by either <STRONG>dstAddr</STRONG> address (given in
+<STRONG>socket</STRONG> module notation), if specified, or default
+destination whenever given on <STRONG>Manager</STRONG> class instaniation,
+and receive a response.
+</P>
+<P>
+Once a response is received, the <STRONG>cbFun</STRONG> is invoked. This
+callback function must support the following interface:
+</P>
+<DL>
+<DT><STRONG>cbFun</STRONG>(<STRONG>rspMsg</STRONG>, <STRONG>srcAddr</STRONG>, <STRONG>cbCtx</STRONG>)</DT>
+<DD>
+<P>
+Where <STRONG>rspMsg</STRONG> is an octet-stream (string), as received from
+network, and <STRONG>srcAddr</STRONG> is message source address (given in
+<STRONG>socket</STRONG> module notation).
+</P>
+<P>
+The callback function must return true if response has been processed
+successfully or false otherwise. In the latter case, the 
+<STRONG>sendAndReceive</STRONG>() function will keep on re-sending initial
+request for <STRONG>Manager.retries</STRONG> of times.
+</P>
+</DD>
+</DL>
+<p>
+If response is not received within <STRONG>Manager.timeout</STRONG> *
+<STRONG>Manager.retries</STRONG> seconds, the
+<A HREF="error.html#NoResponseError">error.NoResponseError</A> exception
+will be thrown.
+</P>
+</DD>
+</DL>
+
+<DL>
+<DT><STRONG>open</STRONG>()</DT>
+<DD>
+<P>
+Create optionally connected socket object to be used for communication
+with remote server process.
+</P>
+<P>
+Return socket object.
+</P>
+</DD>
+</DL>
+
+<DL>
+<DT><STRONG>send</STRONG>(<STRONG>reqMsg</STRONG>,
+[<STRONG>dstAddr</STRONG>])</DT>
+<DD>
+<P>
+Attempt to send request data <STRONG>reqMsg</STRONG> (string) to remote
+server by either <STRONG>dstAddr</STRONG> address (given in
+<STRONG>socket</STRONG> module notation), if specified, or default
+destination whenever given on <STRONG>Manager</STRONG> class instaniation.
+</P>
+</DD>
+</DL>
+
+<DL>
+<DT><STRONG>receive</STRONG>()</DT>
+<DD>
+<P>
+Wait for server response for <STRONG>Manager.timeout</STRONG> seconds and
+raise an <A HREF="error.html#NoResponseError">error.NoResponseError</A>
+exception if no response arrived in time.
+</P>
+<P>
+Return a tuple of (<STRONG>rspMsg</STRONG>, <STRONG>srcAddr</STRONG>) where
+<STRONG>rspMsg</STRONG> is server response (string) and
+<STRONG>srcAddr</STRONG> is server's address (in <STRONG>socket</STRONG>
+module notation).
+</P>
+</DD>
+</DL>
+
+<DL>
+<DT><STRONG>close</STRONG>()</DT>
+<DD>
+<P>
+Terminate communication with server and release all associated resources.
+</P>
+</DD>
+</DL>
+
+<P>
+Objects of the <STRONG>Manager</STRONG> class have the following public
+instance variables:
+</P>
+
+<DL>
+<DT><STRONG>timeout</STRONG></DT>
+<DD>
+<P>
+Specify for how many seconds to wait for response from remote server. The
+<STRONG>timeout</STRONG> attribute is of floating point type.
+</P>
+<P>
+The default is 1.0 second.
+</DD>
+</DL>
+
+<DL>
+<DT><STRONG>retries</STRONG></DT>
+<DD>
+<P>
+Specify the number of <STRONG>reqMsg</STRONG> re-transmissions. The
+<STRONG>retries</STRONG> attribute is of integer type.
+</P>
+<P>
+The default is 3 retries.
+</P>
+</DD>
+</DL>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

@@ -1,0 +1,99 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Transport Mappings: UDP/IP: Error handling</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+The pysnmp.mapping.udp package - error handling
+</H3>
+<P>
+Components of <STRONG>pysnmp.mapping.udp</STRONG> package may raise exceptions
+based on the following classes:
+</P>
+
+<A NAME="SnmpOverUdpError"></A>
+<P>
+<DL>
+<DT>class <STRONG>SnmpOverUdpError</STRONG>([<STRONG>err_msg</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent an exception occurred in the
+<STRONG>pysnmp.mapping.udp</STRONG> code. This is a subclass of
+<A HREF="../error.html#TransportError">pysnmp.mapping.error.TransportError</A>
+class, and a base class for more specific, package-wide exceptions.
+</P>
+</DD>
+</DL>
+
+<A NAME="BadArgumentError"></A>
+<P>
+<DL>
+<DT>class <STRONG>BadArgumentError</STRONG>([<STRONG>err_msg</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent a bad argument exception occurred in the
+<STRONG>pysnmp.mapping.udp</STRONG> code. This is a subclass of
+<A HREF="#SnmpOverUdpError">SnmpOverUdpError</A> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="NetworkError"></A>
+<P>
+<DL>
+<DT>class <STRONG>NetworkError</STRONG>([<STRONG>err_msg</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent various network-level errors occurred in the
+<STRONG>pysnmp.mapping.udp</STRONG> code. This is a subclass of
+<A HREF="#SnmpOverUdpError">SnmpOverUdpError</A> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="NoResponseError"></A>
+<P>
+<DL>
+<DT>class <STRONG>NoResponseError</STRONG>([<STRONG>err_msg</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent no-response errors occurred to managers of
+the <STRONG>pysnmp.mapping.udp</STRONG> modules. This is a subclass of
+<A HREF="#NetworkError">NetworkError</A> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="IdleTimeoutError"></A>
+<P>
+<DL>
+<DT>class <STRONG>IdleTimeoutError</STRONG>([<STRONG>err_msg</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent idle timeout error (no requests coming)
+occurred to the agents of <STRONG>pysnmp.mapping.udp</STRONG> modules. This
+is a subclass of <A HREF="#NetworkError">NetworkError</A> class.
+</P>
+</DD>
+</DL>
+
+<HR><STRONG>Subsections</STRONG>
+
+<P>
+Neither of the above classes defines additional methods to their base classes.
+</P>
+
+</DD>
+</DL>
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

@@ -1,0 +1,180 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1: Base: VariableTypeAsn1Object methods</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Objects of the <STRONG>base.VariableTypeAsn1Object</STRONG> class
+</H3>
+
+<P>
+Instances of <A HREF="base.html#VariableTypeAsn1Object">
+base.VariableTypeAsn1Object</A> class implement mutable sequence object
+protocol by means of the following methods:
+</P>
+
+<A NAME="__getitem__"></A>
+<DL>
+<DT><STRONG>__getitem__</STRONG>(<STRONG>index</STRONG>)</DT>
+<DD>
+<P>
+Returns a reference to embedded component (class instance) by
+<STRONG>index</STRONG> (integer).
+</P>
+</DD>
+</DL>
+
+<A NAME="__setitem__"></A>
+<DL>
+<DT><STRONG>__setitem__</STRONG>(<STRONG>index</STRONG>,
+<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+Assigns a reference to embedded component (class instance) by 
+<STRONG>index</STRONG> (integer).
+</P>
+</DD>
+</DL>
+
+<A NAME="__delitem__"></A>
+<DL>
+<DT><STRONG>__delitem__</STRONG>(<STRONG>index</STRONG>)</DT>
+<DD>
+<P>
+Removes a reference to embedded component (class instance) by
+<STRONG>index</STRONG> (integer).
+</P>
+</DD>
+</DL>
+
+<A NAME="append"></A>
+<DL>
+<DT><STRONG>append</STRONG>(<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+Assigns a reference to embedded component (class instance) passed by
+<STRONG>value</STRONG> (class instance) at the very last position of the
+sequence.
+</P>
+</DD>
+</DL>
+
+<A NAME="extend"></A>
+<DL>
+<DT><STRONG>extend</STRONG>(<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+Assigns one or more references to embedded components (class instance) passed
+by <STRONG>value</STRONG> (a list of class instances) at the very last
+position of the sequence.
+</P>
+</DD>
+</DL>
+
+<A NAME="insert"></A>
+<DL>
+<DT><STRONG>insert</STRONG>(<STRONG>index</STRONG>,
+<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+Assigns a reference to embedded component (class instance) at the
+<STRONG>index</STRONG> (integer) position of the sequence.
+</P>
+</DD>
+</DL>
+
+<A NAME="pop"></A>
+<DL>
+<DT><STRONG>pop</STRONG>([<STRONG>index</STRONG>])</DT>
+<DD>
+<P>
+Returns a reference to embedded component (class instance) and remove it
+from the very last position of the sequence.
+</P>
+</DD>
+</DL>
+
+<A NAME="index"></A>
+<DL>
+<DT><STRONG>index</STRONG>(<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+Returns a position (integer) of matching component (class instance) at the
+sequence.
+</P>
+</DD>
+</DL>
+
+<A NAME="__len__"></A>
+<DL>
+<DT><STRONG>__len__</STRONG>()</DT>
+<DD>
+<P>
+Returns the number of embedded components of the sequence.
+</P>
+</DD>
+</DL>
+
+<A NAME="__cmp__"></A>
+<DL>
+<DT><STRONG>__cmp__</STRONG>(<STRONG>other</STRONG>)</DT>
+<DD>
+<P>
+Called on object comparation of this ASN.1 object with the
+<STRONG>other</STRONG>, which should be an instance of
+<STRONG>VariableTypeAsn1Object</STRONG> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="__hash__"></A>
+<DL>
+<DT><STRONG>__hash__</STRONG>()</DT>
+<DD>
+<P>
+Returns object hash value, which is actually a XOR'ed set of hash values
+of embedded objects.
+</P>
+</DD>
+</DL>
+
+<A NAME="__str__"></A>
+<A NAME="__repr__"></A>
+<DL>
+<DT><STRONG>__str__</STRONG>()</DT>
+<DT><STRONG>__repr__</STRONG>()</DT>
+<DD>
+<P>
+Returns a printable representation of ASN.1 object structure.
+</P>
+</DD>
+</DL>
+
+<P>
+Instances of <STRONG>VariableTypeAsn1Object</STRONG> class make use of the
+following public instance variable:
+</P>
+
+<A NAME="protoComponent"></A>
+<DL>
+<DT><STRONG>protoComponent</STRONG></DT>
+<DD>
+<P>
+This instance variable should be initialized to a class reference of
+embedded component allowed to be stored at this particular ASN.1 object
+implementation.
+</P>
+</DD>
+</DL>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

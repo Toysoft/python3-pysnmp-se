@@ -1,0 +1,102 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1: Base: SimpleAsn1Object methods</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Objects of the <STRONG>base.SimpleAsn1Object</STRONG> class
+</H3>
+
+<P>
+Instances of <A HREF="base.html#SimpleAsn1Object">base.SimpleAsn1Object</A>
+class implement the following additional methods:
+</P>
+
+<A NAME="set"></A>
+<DL>
+<DT><STRONG>set</STRONG>(<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+Sets the <STRONG>value</STRONG> to ASN.1 object. The <STRONG>value</STRONG>
+must be either a <STRONG>SimpleAsn1Object</STRONG> class instance or
+an arbitrary value specific to ASN.1 object implementation (e.g superclass
+implementation).
+</P>
+</DD>
+</DL>
+
+<A NAME="get"></A>
+<DL>
+<DT><STRONG>get</STRONG>()</DT>
+<DD>
+<P>
+Returns the payload of ASN.1 object as a native Python value. The exact type of
+returned value is specific to ASN.1 object implementation (e.g. superclass
+implementation).
+</P>
+</DD>
+</DL>
+
+<A NAME="__cmp__"></A>
+<DL>
+<DT><STRONG>__cmp__</STRONG>(<STRONG>other</STRONG>)</DT>
+<DD>
+<P>
+Called on comparation of the payload of this ASN.1 object with the
+<STRONG>other</STRONG>, which can be a value of a compatible type or an
+instance of <STRONG>SimpleAsn1Object</STRONG> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="__hash__"></A>
+<DL>
+<DT><STRONG>__hash__</STRONG>()</DT>
+<DD>
+<P>
+Return a hash value of the object, which is actually taken from the payload
+of the instance of <STRONG>SimpleAsn1Object</STRONG> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="__str__"></A>
+<A NAME="__repr__"></A>
+<DL>
+<DT><STRONG>__str__</STRONG>()</DT>
+<DT><STRONG>__repr__</STRONG>()</DT>
+<DD>
+<P>
+Return a printable representation of ASN.1 object payload.
+</P>
+</DD>
+</DL>
+
+<P>
+Instances of <STRONG>SimpleAsn1Object</STRONG> class make use of the following
+public instance variable:
+</P>
+
+<A NAME="initialValue"></A>
+<DL>
+<DT><STRONG>initialValue</STRONG></DT>
+<DD>
+<P>
+This instance variable can be initialized to a initial value ot ASN.1 object.
+The type of <STRONG>initialValue</STRONG> is specific to ASN.1 object
+implementation.
+</P>
+</DD>
+</DL>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

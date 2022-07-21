@@ -1,0 +1,191 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1: Base: Asn1Object methods</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Objects of the <STRONG>base.Asn1Object</STRONG> class
+</H3>
+
+<P>
+Instances of <A HREF="base.html#Asn1Object">base.Asn1Object</A> use
+a set of instance variables for controlling ASN.1 object properties,
+each of which falls into one of the following categories:
+</P>
+
+<P>
+ASN.1 object tagging
+</P>
+
+<A NAME="tagClass"></A>
+<DL>
+<DT><STRONG>tagClass</STRONG></DT>
+<DD>
+<P>
+This instance variable should be initialized to ASN.1 object class identifier
+(integer). Possible values held in <A HREF="base.html#tagClasses">
+tagClasses</A> dictionary.
+</P>
+<P>
+The default value for <STRONG>tagClass</STRONG> is
+tagClasses['UNIVERSAL'].
+</P>
+</DD>
+</DL>
+
+<A NAME="tagFormat"></A>
+<DL>
+<DT><STRONG>tagFormat</STRONG></DT>
+<DD>
+<P>
+This instance variable should be initialized to ASN.1 object format identifier
+(integer). Possible values held in <A HREF="base.html#tagFormats">
+tagFormats</A> dictionary.
+</P>
+</DD>
+</DL>
+
+<A NAME="tagId"></A>
+<DL>
+<DT><STRONG>tagId</STRONG></DT>
+<DD>
+<P>
+This instance variable should be initialized to ASN.1 object tag (integer).
+</P>
+</DD>
+</DL>
+
+<A NAME="tagCategory"></A>
+<DL>
+<DT><STRONG>tagCategory</STRONG></DT>
+<DD>
+<P>
+This instance variable should be initialized to ASN.1 object tagging method
+identifier (integer). Possible values held in
+<A HREF="base.html#tagCategories">tagCategories</A> dictionary.
+</P>
+<P>
+The default value for <STRONG>tagCategory</STRONG> is
+tagCategories['IMPLICIT'].
+</P>
+</DD>
+</DL>
+
+<P>
+ASN.1 object initializer verification
+</P>
+
+<A NAME="allowedTypes"></A>
+<DL>
+<DT><STRONG>allowedTypes</STRONG></DT>
+<DD>
+<P>
+This instance variable should be initialized to a list of Python types allowed
+for loading into ASN.1 object.
+</P>
+</DD>
+</DL>
+
+<P>
+ASN.1 subtyping
+</P>
+
+<P>
+The ASN.1 standard specifies a method of deriving a subtype by restricting
+the set of values defined for a parent type. Six different forms of notations
+for restricting the value set of a subtype are provided in the standard. The
+following instance variables can be used for specifying these subtyping
+constraints:
+</P>
+
+<A NAME="singleValueConstraint"></A>
+<DL>
+<DT><STRONG>singleValueConstraint</STRONG></DT>
+<DD>
+<P>
+This instance variable can be initialized to a list of ASN.1 object-specific
+set of values that the subtype may take on.
+</P>
+<P>
+For example, for a numeric object: singleValueConstraint = [1, 3, 5]
+</P>
+</DD>
+</DL>
+
+<A NAME="containedSubtypeConstraint"></A>
+<DL>
+<DT><STRONG>containedSubtypeConstraint</STRONG></DT>
+<DD>
+<P>
+This instance variable can be initialized to a list of ASN.1 object-specific
+set of values of the subtypes that this object contains.
+</P>
+</DD>
+</DL>
+
+<A NAME="valueRangeConstraint"></A>
+<DL>
+<DT><STRONG>valueRangeConstraint</STRONG></DT>
+<DD>
+<P>
+This instance variable can be initialized to a tuple of numerical values of
+the endponts of the range that this ASN.1 object may take.
+</P>
+<P>
+For example, for a numeric object: valueRangeConstraint = (0, 65535)
+</P>
+</DD>
+</DL>
+
+<A NAME="sizeConstraint"></A>
+<DL>
+<DT><STRONG>sizeConstraint</STRONG></DT>
+<DD>
+<P>
+This instance variable can be initialized to a tuple of numerical values of
+the number of items in a type that ASN.1 object may take.
+</P>
+<P>
+For example, for a structured object that takes from one to 16 components:
+sizeConstraint = (1, 16)
+</P>
+</DD>
+</DL>
+
+<A NAME="permittedAlphabetConstraint"></A>
+<DL>
+<DT><STRONG>permittedAlphabetConstraint</STRONG></DT>
+<DD>
+<P>
+This instance variable can be initialized to a list of all values that can be
+constructed using the sub-alphabet of the parent ASN.1 object type.
+</P>
+<P>
+For example, for a string object that implements telephone tone buttons,
+permittedAlphabetConstraint = [ '0', '1', '2', '3', '4', '5', '6', '7',
+'8', '9'].
+</P>
+</DD>
+</DL>
+
+<A NAME="innerSubtypeConstraint"></A>
+<DL>
+<DT><STRONG>innerSubtypeConstraint</STRONG></DT>
+<DD>
+<P>
+This is not yet implemented.
+</P>
+</DD>
+</DL>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

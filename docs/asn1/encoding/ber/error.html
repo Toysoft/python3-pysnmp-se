@@ -1,0 +1,117 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1 framework: Encoding: BER: Error handling</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+The pysnmp.asn1.encoding.ber package - error handling
+</H3>
+<P>
+Components of <STRONG>pysnmp.asn1.encoding.ber</STRONG> package may raise
+exceptions based on the following classes:
+</P>
+
+<A NAME="BerEncodingError"></A>
+<P>
+<DL>
+<DT>class <STRONG>BerEncodingError</STRONG>([<STRONG>err_msg</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent an exception occurred in the
+<STRONG>pysnmp.asn1.encoding.ber</STRONG> code. This is a subclass of
+<A HREF="../error.html#EncodingError">pysnmp.asn1.encoding.error.EncodingError
+</A> class, and a base class for more specific, package-wide exceptions.
+</P>
+</DD>
+</DL>
+
+<A NAME="BadArgumentError"></A>
+<P>
+<DL>
+<DT>class <STRONG>BadArgumentError</STRONG>([<STRONG>err_msg</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent a bad argument exception occurred in the
+<STRONG>pysnmp.asn1.encoding.ber</STRONG> code. This is a subclass of
+<A HREF="#BerEncodingError">BerEncodingError</A> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="TypeMismatchError"></A>
+<P>
+<DL>
+<DT>class <STRONG>TypeMismatchError</STRONG>([<STRONG>err_msg</STRONG>])
+</DT>
+<DD>
+<P>
+Instances of this class raised on attempt to decode an object of wrong
+ASN.1 type (determined by ASN.1 tag). This is a subclass of
+<A HREF="#BerEncodingError">BerEncodingError</A>
+class.
+</P>
+</DD>
+</DL>
+
+<A NAME="OverFlowError"></A>
+<P>
+<DL>
+<DT>class <STRONG>OverFlowError</STRONG>([<STRONG>err_msg</STRONG>])
+</DT>
+<DD>
+<P>
+Instances of this class raised whenever decoded data don't fit their
+placeholder. This is a subclass of <A HREF="#BerEncodingError">
+BerEncodingError</A> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="UnderRunError"></A>
+<P>
+<DL>
+<DT>class <STRONG>UnderRunError</STRONG>([<STRONG>err_msg</STRONG>])
+</DT>
+<DD>
+<P>
+Instances of this class indicate short BER octet stream. This is a subclass of
+<A HREF="#BerEncodingError">BerEncodingError</A>
+class.
+</P>
+</DD>
+</DL>
+
+<A NAME="BadEncodingError"></A>
+<P>
+<DL>
+<DT>class <STRONG>BadEncodingError</STRONG>([<STRONG>err_msg</STRONG>])
+</DT>
+<DD>
+<P>
+Instances of this class indicate incorrect BER octet stream. This is a
+subclass of <A HREF="#BerEncodingError">BerEncodingError</A>
+class.
+</P>
+</DD>
+</DL>
+
+<HR><STRONG>Subsections</STRONG>
+
+<P>
+Neither of the above classes defines additional methods to their base classes.
+</P>
+
+</DD>
+</DL>
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

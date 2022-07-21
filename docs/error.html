@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Error handling</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+PySNMP error handling
+</H3>
+<P>
+Almost all of PySNMP modules are designed to report various error conditions
+in form of Python exceptions. The <STRONG>pysnmp.error</STRONG> module defines
+a base class for all PySNMP exception classes.
+</P>
+<P>
+<DL>
+<DT>class <STRONG>PySnmpError</STRONG>([<STRONG>err_msg</STRONG>])</DT>
+<DD>
+<P>
+Base exception class for all exceptions raised by the The <STRONG>pysnmp
+</STRONG> modules.
+</P>
+<P>
+The optional <STRONG>err_str</STRONG> argument (string) may be used to store
+verbose error message to class instance which may later be returned by
+<STRONG>PySnmpError._str__</STRONG>() method invocation.
+</P>
+</DD>
+</DL>
+
+<HR><STRONG>Subsections</STRONG>
+
+<P>
+<UL>
+<LI>Objects of the <A HREF="error-objects.html">
+<STRONG>PySnmpError</STRONG></A> class
+</UL>
+
+</DD>
+</DL>
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

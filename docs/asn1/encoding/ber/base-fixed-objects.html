@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1: Encoding: BER: Base: Methods of fixed-structure objects</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Objects of various fixed-structure BER facility classes
+</H3>
+
+<P>
+Instances of <A HREF="base.html#OrderedFixedTypeAsn1Object">
+OrderedFixedTypeAsn1Object</A>,
+<A HREF="base.html#UnorderedFixedTypeAsn1Object">
+UnorderedFixedTypeAsn1Object</A> and
+<A HREF="base.html#SingleFixedTypeAsn1Object">
+SingleFixedTypeAsn1Object</A> classes implement the following
+public methods:
+</P>
+
+<A NAME="berEncode"></A>
+<DL>
+<DT><STRONG>berEncode</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Returns BER-encoded contents of the structured ASN.1 object (as string).
+</P>
+<P>
+The optional <STRONG>kwargs</STRONG> argument may be used to assign a new
+value to ASN.1 object prior to running BER encoding method against this
+ASN.1 object. The value of <STRONG>kwargs</STRONG> should be acceptable by the
+ASN.1 object class this BER facility is mixed with.
+</P>
+</DD>
+</DL>
+
+<A NAME="berDecode"></A>
+<DL>
+<DT><STRONG>berDecode</STRONG>(<STRONG>octetStream</STRONG>)</DT>
+<DD>
+<P>
+Decodes <STRONG>octetStream</STRONG> (string) into the payload of the
+ASN.1 object and returns the unprocessed part of the
+<STRONG>octetStream</STRONG> (as string).
+</P>
+</DD>
+</DL>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

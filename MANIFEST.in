@@ -1,0 +1,9 @@
+include CHANGES
+include COMPATIBILITY
+include MANIFEST.in 
+include README
+recursive-include docs *.html
+recursive-include examples *.html *.py
+
+global-exclude CVS
+global-exclude .cvsignore

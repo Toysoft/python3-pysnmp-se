@@ -1,0 +1,374 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Protocol: RFC 1157</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+Structure and Identification of Management Information for TCP/IP-based
+Internets (RFC 1157)
+</H3>
+
+<P>
+The <STRONG>pysnmp.proto.rfc1157</STRONG> module implements data structures
+and operations on them as defined by the
+<A HREF="http://www.ietf.org/rfc/rfc1157.txt">RFC 1157</A>.
+</P>
+
+<A NAME="Version"></A>
+<P>
+<DL>
+<DT>class <STRONG>Version</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent SNMP message version object. This is a
+subclass of <A HREF="rfc1155.html#Integer">rfc1155.Integer</A> class,
+with the following deviations from the base class:
+<UL>
+<LI>Single value constraint set to 0 (for v.1)
+</UL>
+</P>
+<P>
+The default value for <STRONG>Version</STRONG> object is 0.
+</P>
+</DD>
+</DL>
+
+<A NAME="Community"></A>
+<P>
+<DL>
+<DT>class <STRONG>Community</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent SNMP message community name object. This
+is a subclass of <A HREF="rfc1155.html#OctetString">rfc1155.OctetString</A>.
+</P>
+<P>
+The default value for <STRONG>Community</STRONG> object is "public".
+</P>
+</DD>
+</DL>
+
+<A NAME="RequestId"></A>
+<P>
+<DL>
+<DT>class <STRONG>RequestId</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent SNMP PDU request ID object. This is a
+subclass of <A HREF="rfc1155.html#Integer">rfc1155.Integer</A> class,
+with the following deviations from the base class:
+<UL>
+<LI>The initial value is initialized to a auto-incrementing value on every
+class instaniation.
+</UL>
+</P>
+</DD>
+</DL>
+
+<A NAME="ErrorStatus"></A>
+<P>
+<DL>
+<DT>class <STRONG>ErrorStatus</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent SNMP PDU error status object. This is a
+subclass of <A HREF="rfc1155.html#Integer">rfc1155.Integer</A> class,
+with additional methods (<A HREF="#Subsections">see below</A>) and the
+following deviations from the base class:
+<UL>
+<LI>Value range constraint set to (0, 5)
+</UL>
+</P>
+<P>
+The default value for <STRONG>ErrorStatus</STRONG> object is 0.
+</P>
+</DD>
+</DL>
+
+<A NAME="ErrorIndex"></A>
+<P>
+<DL>
+<DT>class <STRONG>ErrorIndex</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent SNMP PDU error index object. This is a
+subclass of <A HREF="rfc1155.html#Integer">rfc1155.Integer</A> class.
+</P>
+<P>
+The default value for <STRONG>ErrorIndex</STRONG> object is 0.
+</P>
+</DD>
+</DL>
+
+<A NAME="VarBind"></A>
+<P>
+<DL>
+<DT>class <STRONG>VarBind</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent SNMP PDU variable binding object. This is a
+subclass of <A HREF="rfc1155.html#Sequence">rfc1155.Sequence</A> class,
+with the following deviations from the base class:
+<UL>
+<LI>Embedded components names are fixed to 'name', 'value' and types to
+<A HREF="rfc1155.html#ObjectName">rfc1155.ObjectName</A>,
+<A HREF="rfc1155.html#ObjectSyntax">rfc1155.ObjectSyntax</A> objects
+respectively.
+</UL>
+</P>
+</DD>
+</DL>
+
+<A NAME="VarBindList"></A>
+<P>
+<DL>
+<DT>class <STRONG>VarBindList</STRONG>([<STRONG>args</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent SNMP PDU variable bindings object. This is
+a subclass of <A HREF="rfc1155.html#SequenceOf">rfc1155.SequenceOf</A> class,
+with the following deviations from the base class:
+<UL>
+<LI>The embedded component type is set to <A HREF="#VarBind">VarBind</A>.
+</UL>
+</P>
+</DD>
+</DL>
+
+<A NAME="GetRequestPdu"></A>
+<P>
+<DL>
+<DT>class <STRONG>GetRequestPdu</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent SNMP Get request PDU object. This is a
+subclass of <A HREF="rfc1155.html#Sequence">rfc1155.Sequence</A> class,
+with the following deviations from the base class:
+<UL>
+<LI>Embedded components names are fixed to 'request_id', 'error_status',
+'error_index', 'variable_bindings' and types to
+<A HREF="#RequestId">RequestId</A>, <A HREF="#ErrorStatus">ErrorStatus</A>,
+<A HREF="#ErrorIndex">ErrorIndex</A>, <A HREF="#VarBindList">VarBindList</A>
+objects respectively.
+<LI>The <STRONG>GetRequestPdu</STRONG> ASN.1 type is defined by IMPLICIT
+<A HREF="../asn1/base.html#Asn1Object">tagging</A> the
+<A HREF="rfc1155.html#Sequence">rfc1155.Sequence</A> type.
+</UL>
+</P>
+</DD>
+</DL>
+
+<A NAME="GetNextRequestPdu"></A>
+<P>
+<DL>
+<DT>class <STRONG>GetNextRequestPdu</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent SNMP GetNext request PDU object. This class
+only differs from the <A HREF="#GetRequestPdu">GetRequestPdu</A> class by
+its ASN.1 <A HREF="../asn1/base.html#Asn1Object">tag</A>.
+</P>
+</DD>
+</DL>
+
+<A NAME="SetRequestPdu"></A>
+<P>
+<DL>
+<DT>class <STRONG>SetRequestPdu</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent SNMP Set request PDU object. This class
+only differs from the <A HREF="#GetRequestPdu">GetRequestPdu</A> class by
+its ASN.1 <A HREF="../asn1/base.html#Asn1Object">tag</A>.
+</P>
+</DD>
+</DL>
+
+<A NAME="GetResponsePdu"></A>
+<P>
+<DL>
+<DT>class <STRONG>GetResponsePdu</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent SNMP Get response PDU object. This class
+only differs from the <A HREF="#GetRequestPdu">GetRequestPdu</A> class by
+its ASN.1 <A HREF="../asn1/base.html#Asn1Object">tag</A>.
+</P>
+</DD>
+</DL>
+
+<A NAME="Pdus"></A>
+<P>
+<DL>
+<DT>class <STRONG>Pdus</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent a variety of allowed SNMP PDU types. This
+is a subclass of <A HREF="rfc1155.html#Choice">rfc1155.Choice</A> class,
+with the following deviations from the base class:
+<UL>
+<LI>Embedded component name is restricted to either of 'get_request',
+'get_next_request', 'get_response', 'set_request', 'trap' and
+type restricted to either of
+<A HREF="#GetRequestPdu">GetRequestPdu</A>,
+<A HREF="#GetNextRequestPdu">GetNextRequestPdu</A>,
+<A HREF="#GetResponsePdu">GetResponsePdu</A>,
+<A HREF="#SetRequestPdu">SetRequestPdu</A>, <A HREF="#TrapPdu">TrapPdu</A>
+objects respectively.
+</UL>
+</P>
+</DD>
+</DL>
+
+<A NAME="Message"></A>
+<P>
+<DL>
+<DT>class <STRONG>Message</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent SNMP message object. This is a
+subclass of <A HREF="rfc1155.html#Sequence">rfc1155.Sequence</A> class,
+with the following deviations from the base class:
+<UL>
+<LI>Embedded components names are fixed to 'version', 'community', 'pdu' and
+types to
+<A HREF="#Version">Version</A>, <A HREF="#Community">Community</A>,
+<A HREF="#Pdus">Pdus</A> objects respectively.
+</UL>
+</P>
+</DD>
+</DL>
+
+<P>
+The following classes implement SNMP Trap-specific items
+</P>
+
+<A NAME="Enterprise"></A>
+<P>
+<DL>
+<DT>class <STRONG>Enterprise</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent SNMP Trap PDU enterprise Object ID object.
+This is a subclass of <A HREF="rfc1155.html#ObjectIdentifier">
+rfc1155.ObjectIdentifier</A> class.
+</P>
+<P>
+The default value for <STRONG>Enterprise</STRONG> object is
+'1.3.6.1.1.2.3.4.1'.
+</P>
+</DD>
+</DL>
+
+<A NAME="AgentAddr"></A>
+<P>
+<DL>
+<DT>class <STRONG>AgentAddr</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent SNMP Trap PDU agent address object. This
+is a subclass of <A HREF="rfc1155.html#NetworkAddress">
+rfc1155.NetworkAddress</A> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="GenericTrap"></A>
+<P>
+<DL>
+<DT>class <STRONG>GenericTrap</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent SNMP Trap PDU generic trap object. This is
+a subclass of <A HREF="rfc1155.html#Integer">rfc1155.Integer</A> class,
+with additional methods (<A HREF="#Subsections">see below</A>) and the
+following deviations from the base class:
+<UL>
+<LI>Value range constraint set to (0, 6)
+</UL>
+</P>
+<P>
+The default value for <STRONG>GenericTrap</STRONG> object is 0.
+</P>
+</DD>
+</DL>
+
+<A NAME="SpecificTrap"></A>
+<P>
+<DL>
+<DT>class <STRONG>SpecificTrap</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent SNMP Trap PDU specific trap object. This is
+a subclass of <A HREF="rfc1155.html#Integer">rfc1155.Integer</A> class.
+</P>
+<P>
+The default value for <STRONG>SpecificTrap</STRONG> object is 0.
+</P>
+</DD>
+</DL>
+
+<A NAME="TimeStamp"></A>
+<P>
+<DL>
+<DT>class <STRONG>TimeStamp</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent SNMP Trap PDU time stamp object. This is
+a subclass of <A HREF="rfc1155.html#TimeTicks">rfc1155.TimeTicks</A> class.
+</P>
+<P>
+The default value for <STRONG>TimeStamp</STRONG> object is time.time()*100.
+</P>
+</DD>
+</DL>
+
+<A NAME="TrapPdu"></A>
+<P>
+<DL>
+<DT>class <STRONG>TrapPdu</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent SNMP Trap PDU object. This is a
+subclass of <A HREF="rfc1155.html#Sequence">rfc1155.Sequence</A> class,
+with the following deviations from the base class:
+<UL>
+<LI>Embedded components names are fixed to 'enterprise', 'agent_addr',
+'generic_trap', 'specific_trap', 'time_stamp', 'variable_bindings' and
+types to <A HREF="#Enterprise">Enterprise</A>,
+<A HREF="#AgentAddr">AgentAddr</A>,
+<A HREF="#GenericTrap">GenericTrap</A>,
+<A HREF="#SpecificTrap">SpecificTrap</A>,
+<A HREF="#TimeStamp">TimeStamp</A>, <A HREF="#VarBindList">VarBindList</A>
+objects respectively.
+<LI>The <STRONG>TrapPdu</STRONG> ASN.1 type is defined by IMPLICIT
+<A HREF="../asn1/base.html#Asn1Object">tagging</A> the
+<A HREF="rfc1155.html#Sequence">rfc1155.Sequence</A> type.
+</UL>
+</P>
+</DD>
+</DL>
+
+<HR><STRONG>Subsections</STRONG>
+
+<A NAME="Subsections"></A>
+
+<P>
+<UL>
+<LI><A HREF="rfc1157-errorstatus-objects.html">
+Additional methods of ErrorStatus objects</A>
+<LI><A HREF="rfc1157-generictrap-objects.html">
+Additional methods of GenericTrap objects</A>
+</UL>
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

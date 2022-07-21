@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1: Universal types: OctetString: Example</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Example of <STRONG>OctetString</STRONG> usage
+</H3>
+
+<P>
+<PRE>
+>>> from pysnmp.asn1 import univ
+>>> s = univ.OctetString('foo')
+>>> s.get()
+'foo'
+>>> s[1:]
+OctetString('oo')
+>>> len(s)
+3
+>>> s + 'bar'
+OctetString('foobar')
+>>> s * 3
+OctetString('foofoofoo')
+>>>
+</PRE>
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

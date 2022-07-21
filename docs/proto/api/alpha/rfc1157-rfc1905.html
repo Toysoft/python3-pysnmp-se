@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Protocol: API: Alpha: Message and PDU</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+Alpha API to SNMP Message and PDU objects
+</H3>
+
+<P>
+The Alpha API provides the following mix-ins to 
+<A HREF="../../index.html#LowLevelApi">SNMP protocol classes</A>.
+</P>
+
+<A NAME="VarBindMixIn"></A>
+<A NAME="GetRequestPduMixIn"></A>
+<A NAME="GetNextRequestPduMixIn"></A>
+<A NAME="SetRequestPduMixIn"></A>
+<A NAME="GetResponsePduMixIn"></A>
+<A NAME="TrapPduMixIn"></A>
+<A NAME="GetBulkRequestPduMixIn"></A>
+<A NAME="InformRequestPduMixIn"></A>
+<A NAME="ReportPduMixIn"></A>
+<A NAME="SnmpV2TrapPduMixIn"></A>
+<A NAME="MessageMixIn"></A>
+<P>
+API classes common to all SNMP protocol versions
+(<A HREF="../../rfc1157.html">rfc1157</A>,
+<A HREF="../../rfc1905.html">rfc1905</A>):
+<DL>
+<DT>class <STRONG>VarBindMixIn</STRONG>()</DT>
+<DT>class <STRONG>GetRequestPduMixIn</STRONG>()</DT>
+<DT>class <STRONG>GetNextRequestPduMixIn</STRONG>()</DT>
+<DT>class <STRONG>SetRequestPduMixIn</STRONG>()</DT>
+<DT>class <STRONG>GetResponsePduMixIn</STRONG>()</DT>
+<DT>class <STRONG>MessageMixIn</STRONG>()</DT>
+</DL>
+SNMP v1-specific API classes (<A HREF="../../rfc1157.html">rfc1157</A>):
+<DL>
+<DT>class <STRONG>TrapPduMixIn</STRONG>()</DT>
+</DL>
+SNMP v2c-specific API classes (<A HREF="../../rfc1905.html">rfc1905</A>):
+<DL>
+<DT>class <STRONG>GetBulkRequestPduMixIn</STRONG>()</DT>
+<DT>class <STRONG>InformRequestPduMixIn</STRONG>()</DT>
+<DT>class <STRONG>ReportPduMixIn</STRONG>()</DT>
+<DT>class <STRONG>SnmpV2TrapPduMixIn</STRONG>()</DT>
+</DL>
+<DD>
+<P>
+For API methods implemented by these classes, please, refer to the
+<A HREF="#Subsections">Subsections</A> below.
+</P>
+</DD>
+</DL>
+
+<HR><STRONG>Subsections</STRONG>
+
+<A NAME="Subsections"></A>
+
+<P>
+<UL>
+<LI><A HREF="rfc1157-rfc1905-varbind-objects.html">
+VarBind API methods</A>
+<LI><A HREF="rfc1157-rfc1905-request-objects.html">
+Get/GetNext/Set/InformRequest and Report PDU API methods</A>
+<LI><A HREF="rfc1157-rfc1905-response-objects.html">
+Response PDU API methods</A>
+<LI><A HREF="rfc1157-rfc1905-message-objects.html">
+Message API methods</A>
+<LI><A HREF="rfc1157-trap-objects.html">
+SNMP v1 Trap PDU API methods</A>
+<LI><A HREF="rfc1905-getbulkrequest-objects.html">
+SNMP v2c GetBulkRequest PDU API methods</A>
+</UL>
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

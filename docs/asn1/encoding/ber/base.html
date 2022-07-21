@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1: Encoding: BER: Base classes</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+Base classes for BER facility for ASN.1 objects
+</H3>
+
+<P>
+The <STRONG>pysnmp.asn1.encoding.ber.base</STRONG> module implements base
+classes for mixing BER facility into various ASN.1 objects.
+</P>
+
+<A NAME="SimpleAsn1Object"></A>
+<P>
+<DL>
+<DT>class <STRONG>SimpleAsn1Object</STRONG>()</DT>
+<DD>
+<P>
+This is the base class for BER facility classes for simple (non-structured)
+ASN.1 objects. See <A HREF="#Subsections">Subsections</A> for details.
+</P>
+</DD>
+</DL>
+
+<A NAME="OrderedFixedTypeAsn1Object"></A>
+<A NAME="UnorderedFixedTypeAsn1Object"></A>
+<A NAME="SingleFixedTypeAsn1Object"></A>
+<P>
+<DL>
+<DT>class <STRONG>OrderedFixedTypeAsn1Object</STRONG>()</DT>
+<DT>class <STRONG>UnorderedFixedTypeAsn1Object</STRONG>()</DT>
+<DT>class <STRONG>SingleFixedTypeAsn1Object</STRONG>()</DT>
+<DD>
+<P>
+These are the base classes for various fixed-structure ASN.1 objects. See
+<A HREF="#Subsections">Subsections</A> for details.
+</P>
+</DD>
+</DL>
+
+<A NAME="OrderedVariableTypeAsn1Object"></A>
+<A NAME="UnorderedVariableTypeAsn1Object"></A>
+<P>
+<DL>
+<DT>class <STRONG>OrderedVariableTypeAsn1Object</STRONG>()</DT>
+<DT>class <STRONG>UnorderedVariableTypeAsn1Object</STRONG>()</DT>
+<DD>
+<P>
+These are the base classes for variable-structure ASN.1 objects. See
+<A HREF="#Subsections">Subsections</A> for details.
+</P>
+</DD>
+</DL>
+
+<P>
+Methods of the above classes may raise exceptions based on
+<STRONG>error.BerEncodingError</STRONG> base class as well as
+<A HREF="../error.html">ASN.1</A> specific exceptions.
+</P>
+
+<HR><STRONG>Subsections</STRONG>
+
+<A NAME="Subsections"></A>
+
+<P>
+<UL>
+<LI><A HREF="base-simple-objects.html">
+Objects of SimpleAsn1Object class</A>
+<LI><A HREF="base-fixed-objects.html">
+Fixed-structure BER facility objects</A>
+<LI><A HREF="base-variable-objects.html">
+Variable-structure BER facility objects</A>
+</UL>
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

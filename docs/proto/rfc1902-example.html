@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Protocol: RFC 1902: Examples</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Example of <STRONG>rfc1902</STRONG> module usage
+</H3>
+
+<P>
+<PRE>
+>>> from pysnmp.proto import rfc1902
+>>> s = rfc1902.ObjectSyntax(simple_syntax=rfc1902.SimpleSyntax())
+>>> s['simple_syntax']['string_value'] = rfc1902.OctetString('foobar')
+>>> s
+ObjectSyntax(simple_syntax=SimpleSyntax(string_value=OctetString('foobar')))
+>>> s.encode()
+'\004\006foobar'
+>>>
+>>> s2 = rfc1902.ObjectSyntax()
+>>> s2
+ObjectSyntax()
+>>> s2.decode(s.encode())
+''
+>>> s2
+ObjectSyntax(simple_syntax=SimpleSyntax(string_value=OctetString('foobar')))
+>>> 
+</PRE>
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

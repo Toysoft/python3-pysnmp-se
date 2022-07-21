@@ -1,0 +1,72 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Protocol: Error handling</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+The pysnmp.proto package - error handling
+</H3>
+<P>
+Components of <STRONG>pysnmp.proto</STRONG> package may raise exceptions
+based on the following classes:
+</P>
+
+<A NAME="ProtoError"></A>
+<P>
+<DL>
+<DT>class <STRONG>ProtoError</STRONG>([<STRONG>err_msg</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent an exception occurred in the
+<STRONG>pysnmp.proto</STRONG> code. This is a subclass of
+<A HREF="../error.html#PySNNPError">error.PySNNPError</A> class,
+and a base class for more specific, package-wide exceptions.
+</P>
+</DD>
+</DL>
+
+<A NAME="BadArgumentError"></A>
+<P>
+<DL>
+<DT>class <STRONG>BadArgumentError</STRONG>([<STRONG>err_msg</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent a bad argument exception occurred in the
+<STRONG>pysnmp.proto</STRONG> code. This is a subclass of
+<A HREF="#ProtoError">ProtoError</A> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="NotImplementedError"></A>
+<P>
+<DL>
+<DT>class <STRONG>NotImplementedError</STRONG>([<STRONG>err_msg</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class are raised to indicate that requested feature is not
+yet implemented. This is a subclass of <A HREF="#ProtoError">ProtoError</A> class.
+</P>
+</DD>
+</DL>
+
+<HR><STRONG>Subsections</STRONG>
+
+<P>
+Neither of the above classes defines additional methods to their base classes.
+</P>
+
+</DD>
+</DL>
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

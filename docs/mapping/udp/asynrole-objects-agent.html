@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: I/O engine: Asynchronous: Agent: Objects</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+Objects of the <STRONG>asynrole.Agent</STRONG> class
+</H3>
+
+<P>
+The instances of <STRONG>asynrole.Agent</STRONG> class have the following
+methods:
+</P>
+
+<DL>
+<DT><STRONG>send</STRONG>(<STRONG>rspMsg</STRONG>, <STRONG>dstAddr</STRONG>)</DT>
+<DD>
+<P>
+Attempt to send response message <STRONG>rspMsg</STRONG> (string) to remote
+client by <STRONG>dstAddr</STRONG> address (given in
+<STRONG>socket</STRONG> module notation).
+</P>
+
+<P>
+This method will typically be used from <STRONG>cbFun</STRONG>, passed
+on <A HREF="asynrole.html#Agent">Agent</A> instantiation, to reply
+a response message back to SNMP manager.
+</P>
+
+</DD>
+</DL>
+
+<P>
+Objects of <STRONG>asynrole.Agent</STRONG> class have no public
+instance variables.
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

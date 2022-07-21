@@ -1,0 +1,131 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1: Universal types: ObjectIdentifier methods</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Objects of the <STRONG>univ.ObjectIdentifier</STRONG> class
+</H3>
+
+<P>
+Instances of <A HREF="univ.html#ObjectIdentifier">univ.ObjectIdentifier</A>
+class implement the following additional methods:
+</P>
+
+<A NAME="isaprefix"></A>
+<DL>
+<DT><STRONG>isaprefix</STRONG>(<STRONG>oid</STRONG>)</DT>
+<DD>
+<P>
+Returns true if the value of this <STRONG>ObjectIdentifier</STRONG> is
+a lexicographical prefix of <STRONG>oid</STRONG> OBJECT IDENTIFIER.
+</P>
+</DD>
+</DL>
+
+<P>
+The following methods emulate a mutable sequence object protocol:
+</P>
+
+<A NAME="__getitem__"></A>
+<DL>
+<DT><STRONG>__getitem__</STRONG>(<STRONG>index</STRONG>)</DT>
+<DD>
+<P>
+Returns a [sub-]identifier (integer for single sub-id or
+<STRONG>ObjectIdentifier</STRONG> class instance for a slice) by
+<STRONG>index</STRONG> (integer or slice type).
+</P>
+</DD>
+</DL>
+
+<A NAME="__setitem__"></A>
+<DL>
+<DT><STRONG>__setitem__</STRONG>(<STRONG>index</STRONG>, 
+<STRONG>oid</STRONG>)</DT>
+<DD>
+<P>
+Sets [sub-]identifier <STRONG>oid</STRONG> by <STRONG>index</STRONG> (integer
+or slice type).
+</P>
+</DD>
+</DL>
+
+<A NAME="__delitem__"></A>
+<DL>
+<DT><STRONG>__delitem__</STRONG>(<STRONG>index</STRONG>)</DT>
+<DD>
+<P>
+Delete sub-identifier by <STRONG>index</STRONG> (integer or slice type).
+</P>
+</DD>
+</DL>
+
+<A NAME="append"></A>
+<DL>
+<DT><STRONG>append</STRONG>(<STRONG>suboid</STRONG>)</DT>
+<DD>
+<P>
+Append a sub-identifier <STRONG>suboid</STRONG> to the
+<STRONG>ObjectIdentifier</STRONG> object.
+</P>
+</DD>
+</DL>
+
+<A NAME="extend"></A>
+<DL>
+<DT><STRONG>extend</STRONG>(<STRONG>oid</STRONG>)</DT>
+<DD>
+<P>
+Append a [sub-]identifier <STRONG>oid</STRONG> to the
+<STRONG>ObjectIdentifier</STRONG> object.
+</P>
+</DD>
+</DL>
+
+<A NAME="index"></A>
+<DL>
+<DT><STRONG>index</STRONG>(<STRONG>suboid</STRONG>)</DT>
+<DD>
+<P>
+Returns index of first occurrence of sub-identifier <STRONG>suboid</STRONG>
+(integer).
+</P>
+</DD>
+</DL>
+
+<A NAME="__len__"></A>
+<DL>
+<DT><STRONG>__len__</STRONG>()</DT>
+<DD>
+<P>
+Returns the number of sub-identifiers in <STRONG>ObjectIdentifier</STRONG>
+object (as integer).
+</P>
+</DD>
+</DL>
+
+<A NAME="__add__"></A>
+<A NAME="__radd__"></A>
+<DL>
+<DT><STRONG>__add__</STRONG>(<STRONG>oid</STRONG>)</DT>
+<DT><STRONG>__radd__</STRONG>(<STRONG>oid</STRONG>)</DT>
+<DD>
+<P>
+Returns concatenated <STRONG>ObjectIdentifier</STRONG> and [sub-]identifier
+<STRONG>oid</STRONG> (operands reflected for __r*__ version).
+</P>
+</DD>
+</DL>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

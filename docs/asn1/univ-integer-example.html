@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1: Universal types: Integer: Example</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Example of <STRONG>Integer</STRONG> usage
+</H3>
+
+<P>
+<PRE>
+>>> from pysnmp.asn1 import univ
+>>> i = univ.Integer(10)
+>>> i.get()
+10
+>>> i - 12
+Integer(-2)
+>>> i += 1
+Integer(11)
+>>> i >> 1
+Integer(5)
+>>> i > 10
+1
+>>> i + univ.Integer(10)
+Integer(21)
+>>>
+</PRE>
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

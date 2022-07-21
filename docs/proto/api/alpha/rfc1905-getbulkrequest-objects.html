@@ -1,0 +1,96 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Protocol: API: Alpha: v2c GetBulkRequest PDU API methods</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Alpha API to GetBulkRequest PDU objects
+</H3>
+
+<P>
+Alpha API to <A HREF="../../rfc1905.html#GetBulkRequestPdu">GetBulkRequestPdu</A>
+objects inherits all
+<A HREF="rfc1157-rfc1905-request-objects.html">Request PDU API methods</A> and
+implements the following in addition: 
+</P>
+
+<A NAME="apiAlphaGetNonRepeaters"></A>
+<DL>
+<DT><STRONG>apiAlphaGetNonRepeaters</STRONG>()</DT>
+<DD>
+<P>
+Returns a reference to
+<A HREF="../../rfc1905.html#NonRepeaters">NonRepeaters</A> object.
+</P>
+</DD>
+</DL>
+
+<A NAME="apiAlphaSetNonRepeaters"></A>
+<DL>
+<DT><STRONG>apiAlphaSetNonRepeaters</STRONG>(<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+Stores <STRONG>value</STRONG> as non-repeaters at PDU where <STRONG>value</STRONG>
+is either a <A HREF="../../rfc1905.html#NonRepeaters">NonRepeaters</A> object or
+a value suitable for <A HREF="../../rfc1905.html#NonRepeaters">NonRepeaters</A>
+object initialization.
+</P>
+</DD>
+</DL>
+</P>
+</DD>
+</DL>
+
+<A NAME="apiAlphaGetMaxRepetitions"></A>
+<DL>
+<DT><STRONG>apiAlphaGetMaxRepetitions</STRONG>()</DT>
+<DD>
+<P>
+Returns a reference to
+<A HREF="../../rfc1905.html#MaxRepetitions">MaxRepetitions</A> object.
+</P>
+</DD>
+</DL>
+
+<A NAME="apiAlphaSetMaxRepetitions"></A>
+<DL>
+<DT><STRONG>apiAlphaSetMaxRepetitions</STRONG>(<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+Stores <STRONG>value</STRONG> as max-repetitions at PDU where <STRONG>value</STRONG>
+is either a <A HREF="../../rfc1905.html#MaxRepetitions">MaxRepetitions</A> object or
+a value suitable for <A HREF="../../rfc1905.html#MaxRepetitions">MaxRepetitions</A>
+object initialization.
+</P>
+</DD>
+</DL>
+</P>
+</DD>
+</DL>
+
+<A NAME="apiAlphaGetTableIndices"></A>
+<DL>
+<DT><STRONG>apiAlphaGetTableIndices</STRONG>(<STRONG>rspPdu</STRONG>,
+*<STRONG>headerOids</STRONG>)</DT>
+<DD>
+<P>
+This method behaves exactly the same as
+<A HREF="rfc1157-rfc1905-request-objects.html#apiAlphaGetTableIndices">
+the same method of Get/GetNext/Set/InformRequest and Report</A> PDUs when
+there are no mixed <STRONG>NonRepeaters</STRONG> and <STRONG>MaxRepetitions
+</STRONG> variables in response. Otherwise, the <STRONG>NonRepeaters</STRONG>
+results would be duplicated in rows up to the number of <STRONG>MaxRepetitions
+</STRONG> to produce a rectangularly aligned table.
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

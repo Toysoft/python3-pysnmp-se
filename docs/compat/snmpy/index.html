@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Compatibility interfaces: snmpy module: Introduction</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+Compatibility interface to snmpy module
+</H3>
+<P>
+The <A HREF="http://www.sf.net/projects/snmpy/">SNMPY project</A> implements
+a Python wrapper over <A HREF="http://www.sf.net/projects/net-snmp/">NetSNMP
+</A> code. At the time of this writing, the <STRONG>SNMPY</STRONG> module 
+can only talk version 1 of SNMP and seems to be mostly oriented to act in a
+manager role.
+</P>
+
+<P>
+The <STRONG>PySNMP</STRONG> compatibility interface tries to re-implement
+the functionality provided by the snmpy module in pure Python. The degree
+of achieved compatibility is limited by a MIB parser, which is implemented in
+<STRONG>NetSNMP</STRONG> but is missing in <STRONG>PySNMP</STRONG> at the
+moment.
+</P>
+
+<P>
+As a rule of thumb, any operation of <STRONG>SNMPY</STRONG> where any form
+of MIB lookup is required can not be supported by this compatibility module
+in a fully compatible manner.
+</P>
+
+<P>
+Here is a [possibly incomplete] list of incompatibilities and limitations
+of <STRONG>PySNMP</STRONG>-based snmpy module:
+</P>
+<P>
+<UL>
+<LI>Symbolic OID names can never be used
+<LI>The session.set(<STRONG>oid</STRONG>, <STRONG>value</STRONG>,
+<STRONG>type</STRONG>) method now requires the third, <STRONG>type</STRONG>,
+argument which should be an ASN.1 type name of the <STRONG>value</STRONG>.
+Valid <STRONG>type</STRONG> names are those, applicible to
+<A HREF="../../proto/rfc1155.html#SimpleSyntax">rfc1155.SimpleSyntax</A> and
+<A HREF="../../proto/rfc1155.html#ApplicationSyntax">rfc1155.ApplicationSyntax
+</A> objects.
+<LI>The name, description, enums, nodes() and __len__() attributes and methods
+of <STRONG>snmpmibnode</STRONG> objects are not supported.
+<LI>The merge(), addmibdir() and timeout() functions are not supported
+</UL>
+</P>
+
+<P>
+Please, refer to original <STRONG>SNMPY</STRONG> package
+<A HREF="http://www.sf.net/projects/snmpy/">documentation</A> for
+more information on using snmpy module.
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

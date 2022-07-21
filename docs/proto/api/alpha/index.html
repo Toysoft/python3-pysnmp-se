@@ -1,0 +1,157 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Protocol: API: Alpha: Introduction</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+Introduction to the Alpha API
+</H3>
+<P>
+The <B>pysnmp.proto.api.alpha</B> sub-package implements a relatively
+high-level, protocol version neutral API to SNMP protocol objects as a set of
+<A HREF="http://www.linuxjournal.com/article.php?sid=4540">mix-in</A>
+classes to ASN-1 based SNMP protocol objects.
+</P>
+
+<P>
+To make use of the <STRONG>alpha</STRONG> API, user needs to "import" the
+<B>pysnmp.proto.api.alpha</B> package into his/her application -- importing
+this package causes all its components to be mixed-into corresponding
+<A HREF="../../index.html#LowLevelApi">low-level</A>
+SNMP protocol classes (such as
+<A HREF="../../rfc1157.html#Message">rfc1157.Message</A>,
+<A HREF="../../rfc1157.html#VarBindList">rfc1157.VarBindList</A> etc).
+</P>
+
+<A NAME="HighLevelApi"></A>
+
+<P>
+The constants defined in this package are:
+</P>
+
+<P>
+<A NAME="protoVersionId1"></A>
+<A NAME="protoVersionId2c"></A>
+<P>
+<DL>
+<DT><STRONG>protoVersionId1</STRONG></DT>
+<DT><STRONG>protoVersionId2c</STRONG></DT>
+<DD>
+<P>
+SNMP protocol version IDs. These are used to indicate SNMP protocol version
+used within the Alpha API.
+</P>
+</DD>
+</DL>
+
+<P>
+<A NAME="protoVersions"></A>
+<P>
+<DL>
+<DT><STRONG>protoVersions</STRONG></DT>
+<DD>
+<P>
+A dictionary of <A HREF="v1-v2c.html">protocol implementation modules</A>
+indexed by <A HREF="#protoVersionId1">protocol version IDs</A>. It is used
+for provisioning uniform access to SNMP protocol items over various SNMP
+versions. For example:
+<PRE>
+>>> from pysnmp.proto.api.alpha import protoVersions, protoVersionId1, protoVersionId2c
+>>> for protoVersionId in [ protoVersionId1, protoVersionId2c ]:
+...     print protoVersions[protoVersionId].Message
+pysnmp.proto.rfc1157.Message
+pysnmp.proto.rfc1905.Message
+>>>
+</PRE>
+</P>
+</DD>
+</DL>
+
+<A NAME="getRequestPduType"></A>
+<A NAME="getNextRequestPduType"></A>
+<A NAME="setRequestPduType"></A>
+<A NAME="getResponsePduType"></A>
+<A NAME="trapPduType"></A>
+<A NAME="getBulkRequestPduType"></A>
+<A NAME="informRequestPduType"></A>
+<A NAME="reportPduType"></A>
+<P>
+<DL>
+<DT><STRONG>getRequestPduType</STRONG></DT>
+<DT><STRONG>getNextRequestPduType</STRONG></DT>
+<DT><STRONG>setRequestPduType</STRONG></DT>
+<DT><STRONG>getResponsePduType</STRONG></DT>
+<DT><STRONG>trapPduType</STRONG></DT>
+<DT><STRONG>getBulkRequestPduType</STRONG></DT>
+<DT><STRONG>informRequestPduType</STRONG></DT>
+<DT><STRONG>reportPduType</STRONG></DT>
+<DD>
+<P>
+SNMP PDU types. These are used to determine the type of arbitrary
+SNMP PDU object.
+</P>
+</DD>
+</DL>
+
+<P>
+The classes provided by this package are:
+</P>
+
+<P>
+<A NAME="MetaMessage"></A>
+<P>
+<DL>
+<DT>class <STRONG>MetaMessage</STRONG>()</DT>
+<DD>
+<P>
+A <A HREF="">Choice</A> of all known message versions. May be used for
+decoding serialized messages of opaque type into concrete SNMP message
+object. For example:
+</P>
+<PRE>
+>>> from pysnmp.proto.api import alpha
+>>> someMsgStream = '0\x19\x02\x01\x00\x04\x06public\xa0\x0c\x02\x02\x02\x13\
+\x02\x01\x00\x02\x01\x000\x00'
+>>> metaMsg = alpha.MetaMessage()
+>>> metaMsg.berDecode(someMsgStream)
+>>> metaMsg
+MetaMessage(1=Message(version=Version(0), community=Community('public'), 
+pdu=Pdus(get_request=GetRequestPdu(request_id=RequestId(531), 
+error_status=ErrorStatus(0), error_index=ErrorIndex(0), 
+variable_bindings=VarBindList()))))
+</PRE>
+</DD>
+</DL>
+
+<P>
+This package provides the following facilities:
+</P>
+
+<P>
+<UL>
+<A NAME="ProtoImplementationModules"></A>
+<LI><A HREF="v1-v2c.html">Shortcuts to protocol implementation modules</A>
+<LI><A HREF="rfc1157-rfc1905.html">Mix-in classes to SNMP message and PDU objects (rfc1157/rfc1905)</A>
+<LI><A HREF="rfc1155-rfc1902.html">Mix-in classes to ASN.1 objects used in SNMP (rfc1155/rfc1902)</A>
+<LI><A HREF="versions.html">SNMP protocol objects versioning</A>
+<LI><A HREF="pdutypes.html">PDU types classification</A>
+</UL>
+</P>
+
+<P>
+Alpha API methods may raise exceptions based on
+<A HREF="../error.html#ApiError">pysnmp.proto.api.error.ApiError</A>
+base class.
+</P>
+
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

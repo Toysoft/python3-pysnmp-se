@@ -1,0 +1,75 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: I/O engine: Asynchronous: Manager: Objects</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+Objects of the <STRONG>asynrole.Manager</STRONG> class
+</H3>
+
+<P>
+The instances of <STRONG>asynrole.Manager</STRONG> class have the following
+methods:
+</P>
+
+<A NAME="send"></A>
+<DL>
+<DT><STRONG>send</STRONG>(<STRONG>reqMsg</STRONG>[, <STRONG>dstAddr</STRONG>
+[, (<STRONG>cbFun</STRONG>, <STRONG>cbCtx</STRONG>)]])</DT>
+<DD>
+<P>
+Attempt to send request data item <STRONG>reqMsg</STRONG> (string) to remote
+server by either <STRONG>dstAddr</STRONG> address (given in
+<STRONG>socket</STRONG> module notation), if specified, or default
+destination whenever given on <STRONG>asynrole.Manager</STRONG> class
+instaniation.
+</P>
+<P>
+The <STRONG>cbFun</STRONG> argument must be a reference to a callback
+function to be invoked by <STRONG>asyncore</STRONG> on data arrival. This
+function must support the following API:
+</P>
+<P>
+<STRONG>cbFun</STRONG>(<STRONG>cbCtx</STRONG>, (<STRONG>srcAddr</STRONG>,
+<STRONG>rspMsg</STRONG>), (<STRONG>excType</STRONG>, <STRONG>excValue</STRONG>,
+<STRONG>excTraceback</STRONG>))
+</P>
+<P>
+where:
+</P>
+<UL>
+<LI><STRONG>cbCtx</STRONG> is a reference to the same Python object (likely
+request object) as passed to this <STROnG>Manager.send</STRONG> method
+or <STRONG>asynrole.Manager</STRONG> class instaniation 
+<LI>(<STRONG>srcAddr</STRONG>, <STRONG>rspMsg</STRONG>) is a tuple
+holding source address (in <STRONG>socket</STRONG> module notation) and
+response data
+<STRONG>rspMsg</STRONG> (string) respectively
+<LI>(<STRONG>excType</STRONG>, <STRONG>excValue</STRONG>,
+<STRONG>excTraceback</STRONG>) parameters represent exception details,
+whenever happened, as provided by the <STRONG>sys</STRONG> module.
+</UL>
+<P>
+The <STRONG>cbFun</STRONG>() function will always be invoked by asyncore
+following each <STRONG>manager.send</STRONG>() call to either return 
+server reply on successful data exchange, or exception details on error.
+</P>
+
+</DD>
+</DL>
+
+<P>
+Objects of <STRONG>asynrole.Manager</STRONG> class have no public
+instance variables.
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

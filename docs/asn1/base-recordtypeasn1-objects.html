@@ -1,0 +1,164 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1: Base: RecordTypeAsn1Object methods</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Objects of the <STRONG>base.RecordTypeAsn1Object</STRONG> class
+</H3>
+
+<P>
+Instances of <A HREF="base.html#RecordTypeAsn1Object">
+base.RecordTypeAsn1Object</A> class implement the mapping object protocol
+by means of the following methods:
+</P>
+
+<A NAME="__getitem__"></A>
+<DL>
+<DT><STRONG>__getitem__</STRONG>(<STRONG>key</STRONG>)</DT>
+<DD>
+<P>
+Returns a reference to embedded component (class instance) by
+<STRONG>key</STRONG> (type name).
+</P>
+</DD>
+</DL>
+
+<A NAME="__setitem__"></A>
+<DL>
+<DT><STRONG>__setitem__</STRONG>(<STRONG>key</STRONG>,
+<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+Assigns a reference to embedded component (class instance) by 
+<STRONG>key</STRONG> (type name).
+</P>
+</DD>
+</DL>
+
+<A NAME="keys"></A>
+<DL>
+<DT><STRONG>keys</STRONG>()</DT>
+<DD>
+<P>
+Returns a list of known keys (types names).
+</P>
+</DD>
+</DL>
+
+<A NAME="has_key"></A>
+<DL>
+<DT><STRONG>has_key</STRONG>(<STRONG>key</STRONG>)</DT>
+<DD>
+<P>
+Returns true if <STRONG>key</STRONG> (type name) is present in this object.
+</P>
+</DD>
+</DL>
+
+<A NAME="values"></A>
+<DL>
+<DT><STRONG>values</STRONG>()</DT>
+<DD>
+<P>
+Returns a list of references to embedded components (class instances).
+</P>
+</DD>
+</DL>
+
+<A NAME="items"></A>
+<DL>
+<DT><STRONG>items</STRONG>()</DT>
+<DD>
+<P>
+Returns a list of tuples each of which represents a key-value pair (type-name,
+embedded-component).
+</P>
+</DD>
+</DL>
+
+<A NAME="update"></A>
+<DL>
+<DT><STRONG>update</STRONG>(<STRONG>items</STRONG>)</DT>
+<DD>
+<P>
+Merges the <STRONG>items</STRONG> dictionary with the payload of this object.
+</P>
+</DD>
+</DL>
+
+<A NAME="__len__"></A>
+<DL>
+<DT><STRONG>__len__</STRONG>()</DT>
+<DD>
+<P>
+Returns the number of embedded components in this object.
+</P>
+</DD>
+</DL>
+
+<A NAME="__cmp__"></A>
+<DL>
+<DT><STRONG>__cmp__</STRONG>(<STRONG>other</STRONG>)</DT>
+<DD>
+<P>
+Called on object comparation of this ASN.1 object with the
+<STRONG>other</STRONG>, which should be an instance of
+<STRONG>RecordTypeAsn1Object</STRONG> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="__hash__"></A>
+<DL>
+<DT><STRONG>__hash__</STRONG>()</DT>
+<DD>
+<P>
+Returns object hash value, which is actually a XOR'ed set of hash values
+of embedded objects and keys.
+</P>
+</DD>
+</DL>
+
+<A NAME="__str__"></A>
+<A NAME="__repr__"></A>
+<DL>
+<DT><STRONG>__str__</STRONG>()</DT>
+<DT><STRONG>__repr__</STRONG>()</DT>
+<DD>
+<P>
+Returns a printable representation of ASN.1 object structure.
+</P>
+</DD>
+</DL>
+
+<P>
+Instances of <STRONG>RecordTypeAsn1Object</STRONG> class make use of the
+following public instance variable:
+</P>
+
+<A NAME="fixedNames"></A>
+<A NAME="fixedComponents"></A>
+<DL>
+<DT><STRONG>fixedNames</STRONG></DT>
+<DT><STRONG>fixedComponents</STRONG></DT>
+<DD>
+<P>
+These instance variables should be initialized to type names and corresponding
+class references of embedded components to specify the structure of particular
+structured ASN.1 object implementation.
+</P>
+</DD>
+</DL>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

@@ -1,0 +1,128 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Transport Mappings: UDP/IP: Synchronous</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+Synchronous I/O engine
+</H3>
+<P>
+The following code implements network transport that performs synchronous,
+blocking I/O over a single BSD socket. It is intended to serve as a 
+network transport for SNMP messages, within a synchronous SNMP entity
+process, over a TCP/IP network.
+</P>
+<P>
+The <STRONG>pysnmp.mapping.udp.role</STRONG> module defines the following
+items:
+</P>
+<A NAME="Manager"></A>
+<DL>
+<DT>class <STRONG>Manager</STRONG>([<STRONG>dstAddr</STRONG>[,<STRONG>iface</STRONG>]])</DT>
+<DD>
+<P>
+Returns a new instance of <STRONG>Manager</STRONG> class, representing
+network client (SNMP manager) optionally connected to a SNMP agent
+running at <STRONG>dstAddr</STRONG>. The <STRONG>dstAddr</STRONG> argument,
+whenever given, must follow the <STRONG>socket</STRONG> module notation -- 
+('<STRONG>hostname</STRONG>', <STRONG>port</STRONG>) where hostname is a
+string and port is an integer.
+</P>
+<P>
+The default for <STRONG>dstAddr</STRONG> is None what means no default
+destination, so user would unconditionally have to specify destination to each
+<STRONG>Manager.send</STRONG>() method (<A HREF="#Subsections">see below</A>).
+</P>
+<P>
+Once a default <STRONG>dstAddr</STRONG> is specified, specific destination
+may not be given to the <STRONG>Manager.send</STRONG>() method.
+</P>
+<P>
+The <STRONG>iface</STRONG> parameter, if given, specifies the interface and
+port on local machine to <STRONG>bind</STRONG>() to. This argument must also
+follow the <STRONG>socket</STRONG> module notation. All further requests
+would then be originated from the given interface/port (for example,
+('127.0.0.1', 0)).
+</P>
+<P>
+The default for <STRONG>iface</STRONG> is ('0.0.0.0', 0) what stands for
+binding to a primary interface at the local machine.
+</P>
+<A NAME="Agent"></A>
+</DD>
+<DT>class <STRONG>Agent</STRONG>([(<STRONG>cbFun</STRONG>, <STRONG>cbCtx</STRONG>)[, <STRONG>ifaces</STRONG>]])</DT>
+<DD>
+<P>
+Returns a new instance of <STRONG>Agent</STRONG> class, representing
+network server optionally bound to specific network interfaces/ports 
+<STRONG>ifaces</STRONG> at the local machine. The <STRONG>ifaces</STRONG>
+argument, whenever given, must be a list of ('<STRONG>iface</STRONG>',
+<STRONG>port</STRONG>) tuples given in <STRONG>socket</STRONG> module
+notation.
+</P>
+<P>
+The optional <STRONG>cbFun</STRONG> and <STRONG>cbCtx</STRONG> parameters
+may be used on class instaniation to specify the default user callback function
+to be invoked on message receiption. A reference to user-specific data
+(context) may be passed as <STRONG>cbCtx</STRONG> parameter.
+</P>
+<P>
+The <STRONG>cbFun</STRONG>, if given, must support the following interface:
+<DL>
+<DT><STRONG>cbFun</STRONG>(<STRONG>cbCtx</STRONG>, (<STRONG>reqMsg</STRONG>, <STRONG>srcAddr</STRONG>))</DT>
+<DD>
+<P>
+Where <STRONG>reqMsg</STRONG> is an octet-string, as received from network,
+and <STRONG>srcAddr</STRONG> is message source address given in
+<STRONG>socket</STRONG> module notation.
+</P>
+<P>
+The callback function is expected to return a tuple of
+(<STRONG>rspMsg</STRONG>, <STRONG>srcAddr</STRONG>), where 
+<STRONG>rspMsg</STRONG> (string) is the serialized agent's response to
+be replied back to manager by address <STRONG>dstAddr</STRONG>
+(given in <STRONG>socket</STRONG> module notation).
+</P>
+</DD>
+</DL>
+</P>
+<P>
+The default for the <STRONG>ifaces</STRONG> is to listen on the loopback
+interface, port 161/UDP, so the default value is [('127.0.0.1', 161)].
+</P>
+<P>
+Be aware that for a UNIX process to bind(2) to a low port, such as 161 (that
+is less than 1024), a superuser privelege is required. Since running
+scripts under superuser privelege is not particular secure in UNIX environment,
+binding to a non-priveleged port is therefore strongly recommended.
+</P>
+</DD>
+</DL>
+
+<P>
+Methods of the above classes may raise exceptions based on
+<STRONG>error.SnmpOverUdpError</STRONG> base class.
+</P>
+
+<HR>
+
+<A NAME="Subsections"></A>
+
+<STRONG>Subsections</STRONG>
+
+<P>
+<UL>
+<LI><A HREF="role-manager-objects.html">Objects of the role.Manager class</A>
+<LI><A HREF="role-agent-objects.html">Objects of the role.Agent class</A>
+</UL>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

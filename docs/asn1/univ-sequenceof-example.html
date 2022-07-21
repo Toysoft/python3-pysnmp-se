@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1: Universal types: SequenceOf: Example</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Example of <STRONG>SequenceOf</STRONG> usage
+</H3>
+
+<P>
+<PRE>
+>>> from pysnmp.asn1 import univ
+>>> class MySequenceOf(univ.SequenceOf):
+...     protoComponent = univ.OctetString
+...
+>>> s = MySequenceOf([univ.OctetString('foo')])
+>>> s
+MySequenceOf(OctetString('foo'))
+>>> s.append(univ.OctetString('bar'))
+>>> s
+MySequenceOf(OctetString('foo'), OctetString('bar'))
+>>> len(s)
+2
+>>> 'foo' in s
+1
+>>> s.index('bar')
+1
+>>> del s[-1]
+>>> s
+MySequenceOf(OctetString('foo'))
+>>> s[0] = univ.Integer()
+Traceback (innermost last):
+...
+pysnmp.asn1.error.BadArgumentError: Unexpected component type Integer at Sequence
+>>>
+</PRE>
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

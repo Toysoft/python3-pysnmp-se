@@ -1,0 +1,340 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Protocol: RFC 1155</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+Structure and Identification of Management Information for TCP/IP-based
+Internets (RFC 1155)
+</H3>
+
+<P>
+The <STRONG>pysnmp.proto.rfc1155</STRONG> module implements data structures
+and operations on them as defined by the
+<A HREF="http://www.ietf.org/rfc/rfc1155.txt">RFC 1155</A>.
+</P>
+
+<P>
+The following classes implement <A HREF="../asn1/univ.html#Simple">
+simple, universal ASN.1 types</A> in RFC 1155 context.
+</P>
+
+<A NAME="Integer"></A>
+<P>
+<DL>
+<DT>class <STRONG>Integer</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent primitive ASN.1 INTEGER object used
+in RFC 1155 context. This is a subclass of
+<A HREF="../asn1/univ.html#Integer">asn1.univ.Integer</A> and
+<A HREF="../asn1/ber/univ.html#Integer">asn1.ber.univ.Integer</A>
+classes.
+</P>
+</DD>
+</DL>
+
+<A NAME="OctetString"></A>
+<DL>
+<DT>class <STRONG>OctetString</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent primitive ASN.1 OCTET STRING object used
+in RFC 1155 context. This is a subclass of
+<A HREF="../asn1/univ.html#OctetString">asn1.univ.OctetString</A> and
+<A HREF="../asn1/ber/univ.html#OctetString">asn1.ber.univ.OctetString</A>
+classes.
+</P>
+</DD>
+</DL>
+
+<A NAME="ObjectIdentifier"></A>
+<DL>
+<DT>class <STRONG>ObjectIdentifier</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent primitive ASN.1 OBJECT IDENTIFIER object used
+in RFC 1155 context. This is a subclass of
+<A HREF="../asn1/univ.html#ObjectIdentifier">asn1.univ.ObjectIdentifier</A> and
+<A HREF="../asn1/ber/univ.html#ObjectIdentifier">asn1.ber.univ.ObjectIdentifier</A> classes.
+</P>
+</DD>
+</DL>
+
+<A NAME="Null"></A>
+<DL>
+<DT>class <STRONG>Null</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent primitive ASN.1 NULL object used
+in RFC 1155 context. This is a subclass of
+<A HREF="../asn1/univ.html#Null">asn1.univ.Null</A> and
+<A HREF="../asn1/ber/univ.html#Null">asn1.ber.univ.Null</A> classes.
+</P>
+</DD>
+</DL>
+
+<P>
+The following classes implement constructed, universal ASN.1 types used in
+RFC 1155 context.
+</P>
+
+<A NAME="Sequence"></A>
+<DL>
+<DT>class <STRONG>Sequence</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent primitive, constructed ASN.1 SEQUENCE type
+used in RFC 1155 context. This is a subclass of 
+<A HREF="../asn1/univ.html#Sequence">asn1.univ.Sequence</A>
+and <A HREF="../asn1/ber/univ.html#Sequence">asn1.ber.univ.Sequence</A> classes.
+</P>
+</DD>
+</DL>
+
+<A NAME="SequenceOf"></A>
+<DL>
+<DT>class <STRONG>SequenceOf</STRONG>([<STRONG>args</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent primitive, constructed ASN.1 SEQUENCE OF type
+used in RFC 1155 context. This is a subclass of 
+<A HREF="../asn1/univ.html#SequenceOf">asn1.univ.SequenceOf</A>
+and <A HREF="../asn1/ber/univ.html#SequenceOf">asn1.ber.univ.SequenceOf</A>
+classes.
+</P>
+</DD>
+</DL>
+
+<A NAME="Choice"></A>
+<DL>
+<DT>class <STRONG>Choice</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent primitive, constructed ASN.1 CHOICE type
+used in RFC 1155 context. This is a subclass of 
+<A HREF="../asn1/univ.html#Choice">asn1.univ.Choice</A>
+and <A HREF="../asn1/ber/univ.html#Choice">asn1.ber.univ.Choice</A> classes.
+</P>
+</DD>
+</DL>
+
+<P>
+The following classes implement simple, application-wide ASN.1 types used in
+RFC 1155 context.
+</P>
+
+<A NAME="IpAddress"></A>
+<DL>
+<DT>class <STRONG>IpAddress</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent application-wide ASN.1 type
+used for handling IP numbers in RFC 1155 context. This is a subclass of
+<A HREF="#OctetString">OctetString</A> class.
+</P>
+<P>
+Instances of this class take and return IP addresses, represented in
+"dotted" notation, as Python strings (such as '193.124.5.33').
+</P>
+<P>
+The default value for <STRONG>IpAddress</STRONG> object is '0.0.0.0'.
+</P>
+</DD>
+</DL>
+
+<A NAME="Counter"></A>
+<DL>
+<DT>class <STRONG>Counter</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent application-wide ASN.1 type
+used for handling wrapping counters in RFC 1155 context. This is a subclass
+of <A HREF="#Integer">Integer</A> class, with the following deviations
+from the base class:
+<UL>
+<LI>Value range constraint set to 0..4294967295L
+<LI>Value wrapover is performed on overflow. When the maximum value is reached,
+the counter value wraps to 0.
+</UL>
+</P>
+</DD>
+</DL>
+
+<A NAME="Gauge"></A>
+<DL>
+<DT>class <STRONG>Gauge</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent application-wide ASN.1 type
+used for handling non-wrapping counters in RFC 1155 context. This is a
+subclass of <A HREF="#Integer">Integer</A> class, with the following
+deviations from the base class:
+<UL>
+<LI>Value range constraint set to 0..4294967295L
+<LI>Value wrapover is not performed on overflow. When the maximum value is
+reached, value latches and can only be decreased.
+</UL>
+</P>
+</DD>
+</DL>
+
+<A NAME="TimeTicks"></A>
+<DL>
+<DT>class <STRONG>TimeTicks</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent application-wide ASN.1 type
+used for handling time intervals in RFC 1155 context. This is a
+subclass of <A HREF="#Integer">Integer</A> class, with the following
+deviations from the base class:
+<UL>
+<LI>Value range constraint set to 0..4294967295L
+<LI>Value wrapover is not performed on overflow. When the maximum value is
+reached, the time value wraps to 0. A "tick" is representing a centi-second
+(0.01 of a second).
+</UL>
+</P>
+</DD>
+</DL>
+
+<A NAME="Opaque"></A>
+<DL>
+<DT>class <STRONG>Opaque</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent application-wide ASN.1 type
+used for passing an arbitrary syntax inside an OCTET STRING in RFC 1155
+context. This is a subclass of <A HREF="#OctetString">OctetString</A> class.
+</P>
+</DD>
+</DL>
+
+<P>
+The following classes implement constructed, application-wide ASN.1 types
+used in RFC 1155 context.
+</P>
+
+<A NAME="NetworkAddress"></A>
+<DL>
+<DT>class <STRONG>NetworkAddress</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent application-wide ASN.1 type
+used for handling different network address types in RFC 1155 context.
+This is a subclass of <A HREF="#Choice">Choice</A> class, with the following
+deviations from the base class:
+<UL>
+<LI>Embedded value name is set to 'internet' and type restricted to
+<A HREF="#IpAddress">IpAddress</A> objects.
+</UL>
+</P>
+</DD>
+</DL>
+
+<A NAME="ObjectName"></A>
+<DL>
+<DT>class <STRONG>ObjectName</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent application-wide ASN.1 type
+used for names of MIB objects in RFC 1155 context. This is a subclass of
+<A HREF="#ObjectIdentifier">ObjectIdentifier</A> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="SimpleSyntax"></A>
+<DL>
+<DT>class <STRONG>SimpleSyntax</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent a subset of allowed universal ASN.1 types used
+by SNMP v.1 SMI (RFC 1155). This is a subclass of <A HREF="#Choice">Choice</A>
+class, with the following deviations from the base class:
+<UL>
+<LI>Embedded value name is restricted to either of 'number',
+'string', 'object', 'empty' and type restricted to either of
+<A HREF="#Integer">Integer</A>, <A HREF="#OctetString">OctetString</A>,
+<A HREF="#ObjectIdentifier">ObjectIdentifier</A>,
+<A HREF="#Null">Null</A> objects respectively.
+</UL>
+</P>
+<P>
+The default value for <STRONG>SimpleSyntax</STRONG> object is
+<A HREF="#Null">Null</A>.
+</P>
+</DD>
+</DL>
+
+<A NAME="ApplicationSyntax"></A>
+<DL>
+<DT>class <STRONG>ApplicationSyntax</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent a subset of allowed application-wide
+ASN.1 types used by SNMP v.1 SMI (RFC 1155). This is a subclass of
+<A HREF="#Choice">Choice</A> class, with the following deviations from
+the base class:
+<UL>
+<LI>Embedded value name is restricted to either of 'address', 'counter', 
+'gauge', 'ticks', 'arbitrary' and type restricted to either of
+<A HREF="#NetworkAddress">NetworkAddress</A>, <A HREF="#Counter">Counter</A>,
+<A HREF="#Gauge">Gauge</A>, <A HREF="#Gauge">Gauge</A>,
+<A HREF="#TimeTicks">TimeTicks</A>, <A HREF="#Opaque">Opaque</A> objects
+respectively.
+</UL>
+</P>
+</DD>
+</DL>
+
+<A NAME="ObjectSyntax"></A>
+<DL>
+<DT>class <STRONG>ObjectSyntax</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent syntax of MIB objects used by SNMP 
+v.1 SMI (RFC 1155). This is a subclass of <A HREF="#Choice">Choice</A>
+class, with the following deviations from the base class:
+<UL>
+<LI>Embedded value name is restricted to either of 'simple', 'application_wide'
+and type restricted to either of
+<A HREF="#SimpleSyntax">SimpleSyntax</A>,
+<A HREF="#ApplicationSyntax">ApplicationSyntax</A> objects respectively.
+</UL>
+</P>
+<P>
+The default value for <STRONG>ObjectSyntax</STRONG> object is
+<A HREF="#SimpleSyntax">SimpleSyntax</A>.
+</P>
+</DD>
+</DL>
+
+<P>
+Methods of the above classes may raise exceptions based on
+<STRONG>error.SnmpError</STRONG> base class as well as
+<A HREF="../asn1/error.html">ASN.1</A> and <A HREF="../asn1/ber/error.html">
+BER</A> specific exceptions.
+</P>
+
+<HR><STRONG>Subsections</STRONG>
+
+<A NAME="Subsections"></A>
+
+<P>
+<UL>
+<LI><A HREF="rfc1155-example.html">
+Example of rfc1155 module usage</A>
+</UL>
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

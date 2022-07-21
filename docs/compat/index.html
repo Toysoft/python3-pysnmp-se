@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Compatibility interfaces: Introduction</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+Compatibility interfaces
+</H3>
+<P>
+There are a few compatibility APIs to third-party SNMP toolkits and
+previous, non API-level compatible, PySNMP versions.
+</P>
+<P>
+To make use of a compatibility API, an application should either:
+</P>
+<P>
+<UL>
+<LI>refer to a PySNMP compatibility module by setting $PYTHONPATH shell
+variable to something like .../pysnmp/compat/{package}/
+<LI>explicitly import appropriate module from <STRONG>pysnmp.compat</STRONG>
+sub-package.
+</UL>
+For example, an application initially written for version 2.x of PySNMP would
+do:
+</P>
+
+<P>
+<PRE>
+>>> from pysnmp.compat.pysnmp2x import v2c, role, error
+>>>
+</PRE>
+</P>
+
+<P>
+What follows is the documentation on various compatibility modules or
+references to original packages documentation:
+</P>
+
+<P>
+<UL>
+<LI><A HREF="snmpy/index.html">
+The snmpy compatibility module</A>
+<LI><A HREF="http://pysnmp.sourceforge.net/docs/2.x/index.html">
+PySNMP 2.x programmer's manual</A>
+<LI><A HREF="http://pysnmp.sourceforge.net/docs/1.x/index.html">
+PySNMP 1.x programmer's manual</A>
+</UL>
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

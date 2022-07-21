@@ -1,0 +1,106 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Protocol: API: Alpha: Get/Response PDU API methods</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Alpha API to Get/Response PDU objects
+</H3>
+
+<P>
+Alpha API to 
+<A HREF="../../rfc1157.html#GetResponsePdu">GetResponsePdu</A>/
+<A HREF="../../rfc1905.html#ResponsePdu">ResponsePdu</A> objects
+inherits all <A HREF="rfc1157-rfc1905-request-objects.html">Request PDU API
+methods</A> and implements the following in addition:
+</P>
+
+<A NAME="apiAlphaGetErrorStatus"></A>
+<DL>
+<DT><STRONG>apiAlphaGetErrorStatus</STRONG>()</DT>
+<DD>
+<P>
+Returns a reference to
+<A HREF="../../rfc1157.html#ErrorStatus">ErrorStatus</A> object.
+</P>
+</DD>
+</DL>
+
+<A NAME="apiAlphaSetErrorStatus"></A>
+<DL>
+<DT><STRONG>apiAlphaSetErrorStatus</STRONG>(<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+Stores <STRONG>value</STRONG> as Error Status at PDU where <STRONG>value</STRONG>
+is either a <A HREF="../../rfc1157.html#ErrorStatus">ErrorStatus</A> object or
+a value suitable for <A HREF="../../rfc1157.html#ErrorStatus">ErrorStatus</A>
+object initialization.
+</P>
+</DD>
+</DL>
+</P>
+</DD>
+</DL>
+
+<A NAME="apiAlphaGetErrorIndex"></A>
+<DL>
+<DT><STRONG>apiAlphaGetErrorIndex</STRONG>()</DT>
+<DD>
+<P>
+Returns a reference to
+<A HREF="../../rfc1157.html#ErrorIndex">ErrorIndex</A> object.
+</P>
+</DD>
+</DL>
+
+<A NAME="apiAlphaSetErrorIndex"></A>
+<DL>
+<DT><STRONG>apiAlphaSetErrorIndex</STRONG>(<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+Stores <STRONG>value</STRONG> as Error Index at PDU where <STRONG>value</STRONG>
+is either a <A HREF="../../rfc1157.html#ErrorIndex">ErrorIndex</A> object or
+a value suitable for <A HREF="../../rfc1157.html#ErrorIndex">ErrorIndex</A>
+object initialization.
+</P>
+</DD>
+</DL>
+</P>
+</DD>
+</DL>
+
+<A NAME="apiAlphaGetEndOfMibIndices"></A>
+<DL>
+<DT><STRONG>apiAlphaGetEndOfMibIndices</STRONG>()</DT>
+<DD>
+<P>
+Returns a list of <A HREF="../../rfc1157.html#VarBindList">VarBindList</A>
+indices each of which indicate errornous <A HREF="../../rfc1157.html#VarBind">
+VarBind</A> position.
+</P>
+</DD>
+</DL>
+
+<A NAME="apiAlphaSetEndOfMibIndices"></A>
+<DL>
+<DT><STRONG>apiAlphaSetEndOfMibIndices</STRONG>(*<STRONG>indices</STRONG>)</DT>
+<DD>
+<P>
+Indicate End-Of-MIB condition for <A HREF="../../rfc1157.html#VarBind">
+VarBind</A>'s those position on <A HREF="../../rfc1157.html#VarBindList">
+VarBindList</A> is indicated by the <STRONG>indices</STRONG> arguments.
+</P>
+</DD>
+</DL>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

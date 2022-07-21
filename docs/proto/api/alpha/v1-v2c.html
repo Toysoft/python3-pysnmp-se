@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Protocol: API: Alpha: Protocol Implementation Modules</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+Shortcuts to protocol implementation modules
+</H3>
+
+<P>
+Alpha API provides shortcuts to <A HREF="../../index.html#LowLevelApi">
+SNMP protocol modules</A> by implementing a simple wrapper module over
+each set of protocol version-specific modules. These wrapper modules
+are availble through <A HREF="index.html#protoVersions">alpha.protoVersions</A>
+dictionary interface. Each wrapper module simply imports all symbols
+from corresponding set of SNMP protocol modules (such as
+<A HREF="../../rfc1155.html">rfc1155</A>&<A HREF="../../rfc1157.html">rfc1157</A>
+for SNMP v1) into its own namespace and also implements the following
+constants:
+</P>
+
+<A NAME="pduTypes"></A>
+<DL>
+<DT><STRONG>pduTypes</STRONG></DT>
+<DD>
+<P>
+A dictionary of <A HREF="../../rfc1157.html#GetRequestPdu">SNMP PDU
+classes<A/> indexed by SNMP PDU <A HREF="index.html#getRequestPduType">
+type IDs</A>. This may be used for referring to SNMP PDU implementation
+class by <A HREF="index.html#getRequestPduType">SNMP PDU type ID</A> and
+<A HREF="index.html#protoVersionId1">SNMP protocol version ID</A>.
+For example:
+<PRE>
+>>> from pysnmp.proto.api.alpha import protoVersions, protoVersionId1, protoVersionId2c, trapPduType
+>>> for protoVersionId in [ protoVersionId1, protoVersionId2c ]:
+...     print protoVersions[protoVersionId].pduTypes[trapPduType]
+pysnmp.proto.rfc1157.TrapPdu
+pysnmp.proto.rfc1905.SnmpV2TrapPdu
+>>>
+</PRE>
+
+</P>
+</DD>
+</DL>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

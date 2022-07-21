@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Protocol: API: Alpha: Choice API methods</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Alpha API to ASN.1 Choice objects
+</H3>
+
+<P>
+Alpha API implements the following API methods to the
+<A HREF="../../rfc1155.html#Choice">rfc1155.Choice</A> and
+<A HREF="../../rfc1902.html#Choice">rfc1902.Choice</A> objects.
+</P>
+
+<A NAME="apiAlphaGetCurrentComponent"></A>
+<DL>
+<DT><STRONG>apiAlphaGetCurrentComponent</STRONG>()</DT>
+<DD>
+<P>
+Returns a reference to currently chosen component at
+<A HREF="../../rfc1155.html#Choice">Choice</A> object.
+Raises an exception if no component is currently chosen.
+</P>
+</DD>
+</DL>
+
+<A NAME="apiAlphaGetTerminalValue"></A>
+<DL>
+<DT><STRONG>apiAlphaGetTerminalValue</STRONG>()</DT>
+<DD>
+<P>
+Acts similarily to
+<A HREF="#apiAlphaGetCurrentComponent">apiAlphaGetCurrentComponent</A>()
+method but works recursively (depth-first) through possibly enclosed 
+<A HREF="../../rfc1155.html#Choice">Choice</A> objects.
+Stops on the first non-Choice component encountered.
+</P>
+</DD>
+</DL>
+
+<A NAME="apiAlphaSetTerminalValue"></A>
+<DL>
+<DT><STRONG>apiAlphaSetTerminalValue</STRONG>(<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+Walks recursively (depth-first) over
+<A HREF="../../rfc1155.html#Choice">Choice</A> components in attempt to
+assign a <STRONG>value</STRONG> (which must be any of
+<A HREF="../../rfc1155.html">rfc1155</A> or 
+<A HREF="../../rfc1157.html">rfc1157</A> objects) as a
+<A HREF="../../rfc1155.html#Choice">Choice</A> component. Stops
+on first successful assignment.
+</P>
+</DD>
+</DL>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

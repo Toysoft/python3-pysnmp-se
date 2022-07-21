@@ -1,0 +1,72 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1: Universal types: OctetString methods</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Objects of the <STRONG>univ.OctetString</STRONG> class
+</H3>
+
+<P>
+Instances of <A HREF="univ.html#OctetString">univ.OctetString</A>
+class emulate an immutable sequence protocol object by means of the following
+additional methods:
+</P>
+
+<A NAME="__getitem__"></A>
+<DL>
+<DT><STRONG>__getitem__</STRONG>(<STRONG>index</STRONG>)</DT>
+<DD>
+<P>
+Returns object slice as a <STRONG>OctetString</STRONG> object instance by
+<STRONG>index</STRONG> (integer or slice type).
+</P>
+</DD>
+</DL>
+
+<A NAME="__len__"></A>
+<DL>
+<DT><STRONG>__len__</STRONG>()</DT>
+<DD>
+<P>
+Returns object value length of <STRONG>OctetString</STRONG> object (as
+integer).
+</P>
+</DD>
+</DL>
+
+<A NAME="__add__"></A>
+<A NAME="__radd__"></A>
+<DL>
+<DT><STRONG>__add__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__radd__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+Returns concatenated <STRONG>OctetString</STRONG> and <STRONG>value</STRONG>
+(operands reflected for __r*__ version).
+</P>
+</DD>
+</DL>
+
+<A NAME="__mul__"></A>
+<DL>
+<DT><STRONG>__mul__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+Returns an <STRONG>OctetString</STRONG> instance with payload repeted
+<STRONG>value</STRONG> times.
+</P>
+</DD>
+</DL>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

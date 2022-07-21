@@ -1,0 +1,78 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1: Universal types: Boolean: methods</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Objects of the <STRONG>univ.Boolean</STRONG> class
+</H3>
+
+<P>
+Instances of <A HREF="univ.html#Boolean">univ.Boolean</A> class partially
+implement Python numeric object protocol by means of the following
+additional methods:
+</P>
+
+<A NAME="__and__"></A>
+<A NAME="__or__"></A>
+<A NAME="__xor__"></A>
+<DL>
+<DT><STRONG>__and__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__or__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__xor__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+These methods implement the binary arithmetic operations (&, ^, |) against
+the <STRONG>value</STRONG> and return a instance of <STRONG>Boolean</STRONG>
+object initialized to the result of the arithmetic operation.
+</P>
+</DD>
+</DL>
+
+<A NAME="__rand__"></A>
+<A NAME="__ror__"></A>
+<A NAME="__rxor__"></A>
+<DL>
+<DT><STRONG>__rand__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__ror__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__rxor__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+These methods implement the binary arithmetic operations (&, ^, |) against
+the <STRONG>value</STRONG> with reflected (swapped) operands, and return a
+instance of <STRONG>Boolean</STRONG> object initialized to the result of
+the arithmetic operation.
+</P>
+</DD>
+</DL>
+
+<A NAME="__iand__"></A>
+<A NAME="__ior__"></A>
+<A NAME="__ixor__"></A>
+<P>
+The folowing set of methods can be called only by Python version 1.6
+and later.
+</P>
+<DL>
+<DT><STRONG>__iand__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__ior__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DT><STRONG>__ixor__</STRONG>(<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+These methods implement in-place arithmetic operations (&=, ^=, |=) against
+the <STRONG>value</STRONG> and return an instance of ourselves (self).
+</P>
+</DD>
+</DL>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

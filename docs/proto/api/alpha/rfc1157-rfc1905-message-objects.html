@@ -1,0 +1,116 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Protocol: API: Alpha: Message API methods</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Alpha API to Message objects
+</H3>
+
+<P>
+Alpha API implements the following API methods to the
+<A HREF="../../rfc1157.html#Message">rfc1157.Message</A> and
+<A HREF="../../rfc1905.html#Message">rfc1905.Message</A> objects.
+</P>
+
+<A NAME="apiAlphaGetVersion"></A>
+<DL>
+<DT><STRONG>apiAlphaGetVersion</STRONG>()</DT>
+<DD>
+<P>
+Returns a reference to
+<A HREF="../../rfc1157.html#Version">Version</A> object.
+</P>
+</DD>
+</DL>
+
+<A NAME="apiAlphaGetCommunity"></A>
+<DL>
+<DT><STRONG>apiAlphaGetCommunity</STRONG>()</DT>
+<DD>
+<P>
+Returns a reference to
+<A HREF="../../rfc1157.html#Community">Community</A> object.
+</P>
+</DD>
+</DL>
+
+<A NAME="apiAlphaSetCommunity"></A>
+<DL>
+<DT><STRONG>apiAlphaSetCommunity</STRONG>(<STRONG>value</STRONG>)</DT>
+<DD>
+<P>
+Stores <STRONG>value</STRONG> as SNMP community at Message object where
+<STRONG>value</STRONG> is either a <A HREF="../../rfc1157.html#Community">
+Community</A> object or a value suitable for
+<A HREF="../../rfc1157.html#Community">Community</A> object initialization.
+</P>
+</DD>
+</DL>
+
+<A NAME="apiAlphaGetPdu"></A>
+<DL>
+<DT><STRONG>apiAlphaGetPdu</STRONG>()</DT>
+<DD>
+<P>
+Returns a reference to any of
+<A HREF="../../rfc1157.html#GetRequestPdu">rfc1157</A> or
+<A HREF="../../rfc1905.html#GetRequestPdu">rfc905</A> PDU object at
+Message.
+</P>
+</DD>
+</DL>
+
+<A NAME="apiAlphaSetPdu"></A>
+<DL>
+<DT><STRONG>apiAlphaSetPdu</STRONG>(<STRONG>pdu</STRONG>)</DT>
+<DD>
+<P>
+Stores <STRONG>pdu</STRONG> object at Message, where
+<STRONG>pdu</STRONG> must be any of
+<A HREF="../../rfc1157.html#GetRequestPdu">rfc1157</A> or
+<A HREF="../../rfc1905.html#GetRequestPdu">rfc905</A> PDU objects.
+</P>
+</DD>
+</DL>
+
+<A NAME="apiAlphaReply"></A>
+<DL>
+<DT><STRONG>apiAlphaReply</STRONG>([<STRONG>rspMsg</STRONG>])</DT>
+<DD>
+<P>
+Returns new or initializes <STRONG>rspMsg</STRONG> instance of
+<A HREF="../../rfc1157.html#Message">rfc1157</A> or 
+<A HREF="../../rfc1905.html#Message">rfc1905</A> Message object
+with the same <A HREF="../../rfc1157.html#Community">Community</A> value.
+This method invokes <A HREF="rfc1157-rfc1905-request-objects.html#apiAlphaReply">
+apiAlphaReply</A>() method at PDU.
+</P>
+</DD>
+</DL>
+
+<A NAME="apiAlphaMatch"></A>
+<DL>
+<DT><STRONG>apiAlphaMatch</STRONG>(<STRONG>rspMsg</STRONG>)</DT>
+<DD>
+<P>
+Returns true if <A HREF="../../rfc1157.html#Community">Community</A>
+at <STRONG>rspMsg</STRONG> (which must be a
+<A HREF="../../rfc1157.html#Message">rfc1157</A> or 
+<A HREF="../../rfc1905.html#Message">rfc1905<A> Message instance)
+is the same as SNMP community name of this Message.
+</P>
+</DD>
+</DL>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

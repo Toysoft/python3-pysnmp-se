@@ -1,0 +1,134 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: ASN.1: Encoding: BER: Universal types</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+BER methods for ASN.1 universal data types
+</H3>
+
+<P>
+The <STRONG>pysnmp.asn1.encoding.ber.univ</STRONG> module implements
+BER encoders and decoders for universal ASN.1 types. Each of these classes
+is designed to be mixed into corresponding <A HREF="../univ.html"> universal
+ASN.1 class</A> for adding BER functionality to the base classes.
+</P>
+
+<P>
+The following classes implement BER methods for <STRONG>simple</STRONG>
+ASN.1 types:
+</P>
+
+<A NAME="BooleanMixIn"></A>
+<A NAME="IntegerMixIn"></A>
+<A NAME="BitStringMixIn"></A>
+<A NAME="OctetStringMixIn"></A>
+<A NAME="NullMixIn"></A>
+<A NAME="ObjectIdentifierMixIn"></A>
+<P>
+<DL>
+<DT>class <STRONG>BooleanMixIn</STRONG>()</DT>
+<DT>class <STRONG>IntegerMixIn</STRONG>()</DT>
+<DT>class <STRONG>BitStringMixIn</STRONG>()</DT>
+<DT>class <STRONG>OctetStringMixIn</STRONG>()</DT>
+<DT>class <STRONG>NullMixIn</STRONG>()</DT>
+<DT>class <STRONG>ObjectIdentifierMixIn</STRONG>()</DT>
+<DD>
+<P>
+These classes are derived from <A HREF="base.html#SimpleAsn1Object">
+SimpleAsn1Object</A> class, and do not define any additional public
+methods.
+</P>
+</DD>
+</DL>
+
+<P>
+The following classes implement BER methods for <STRONG>structured</STRONG>
+ASN.1 types:
+</P>
+
+<A NAME="SequenceMixIn"></A>
+<P>
+<DL>
+<DT>class <STRONG>SequenceMixIn</STRONG>()</DT>
+<DD>
+<P>
+These classes are derived from <A HREF="base.html#OrderedFixedTypeAsn1Object">
+OrderedFixedTypeAsn1Object</A> class, and do not define any additional
+public methods.
+</P>
+</DD>
+</DL>
+
+<A NAME="SequenceOfMixIn"></A>
+<P>
+<DL>
+<DT>class <STRONG>SequenceOfMixIn</STRONG>()</DT>
+<DD>
+<P>
+These classes are derived from 
+<A HREF="base.html#OrderedVariableTypeAsn1Object">
+OrderedVariableTypeAsn1Object</A> class, and do not define any additional
+public methods.
+</P>
+</DD>
+</DL>
+
+<A NAME="SetMixIn"></A>
+<P>
+<DL>
+<DT>class <STRONG>SetMixIn</STRONG>()</DT>
+<DD>
+<P>
+These classes are derived from
+<A HREF="base.html#UnorderedFixedTypeAsn1Object">
+UnorderedFixedTypeAsn1Object</A> class, and do not define any additional
+public methods.
+</P>
+</DD>
+</DL>
+
+<A NAME="SetOfMixIn"></A>
+<P>
+<DL>
+<DT>class <STRONG>SetOfMixIn</STRONG>()</DT>
+<DD>
+<P>
+These classes are derived from 
+<A HREF="base.html#UnorderedVariableTypeAsn1Object">
+UnorderedVariableTypeAsn1Object</A> class, and do not define any
+additional public methods.
+</P>
+</DD>
+</DL>
+
+<A NAME="ChoiceMixIn"></A>
+<P>
+<DL>
+<DT>class <STRONG>ChoiceMixIn</STRONG>()</DT>
+<DD>
+<P>
+These classes are derived from 
+<A HREF="base.html#SingleFixedTypeAsn1Object">
+SingleFixedTypeAsn1Object</A> class, and do not define any additional
+public methods.
+</P>
+</DD>
+</DL>
+
+<P>
+Methods of the above classes may raise exceptions based on
+<STRONG>error.BerEncodingError</STRONG> base class as well as
+<A HREF="../error.html">ASN.1</A> specific exceptions.
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

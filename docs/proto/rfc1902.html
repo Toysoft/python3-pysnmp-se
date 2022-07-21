@@ -1,0 +1,330 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Protocol: RFC 1902</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+Structure of Management Information for Version 2 of SNMPv2 (RFC 1902)
+</H3>
+
+<P>
+The <STRONG>pysnmp.proto.rfc1902</STRONG> module implements data structures
+and operations on them as defined by the
+<A HREF="http://www.ietf.org/rfc/rfc1902.txt">RFC 1902</A>.
+</P>
+
+<P>
+The following classes implement <A HREF="../asn1/univ.html#Simple">
+simple, universal ASN.1 types</A> in RFC 1902 context.
+</P>
+
+<A NAME="Integer"></A>
+<A NAME="Integer32"></A>
+<P>
+<DL>
+<DT>class <STRONG>Integer</STRONG>([<STRONG>value</STRONG>])</DT>
+<DT>class <STRONG>Integer32</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of these classes represent primitive ASN.1 INTEGER/Integer32 objects used
+in RFC 1902 context. These are the subclasses of
+<A HREF="rfc1155.html#Integer">rfc1155.Integer</A> class, with the following
+deviations from the base class:
+<UL>
+<LI>Value range constraint is set to (-2147483648L, 2147483647L)
+</UL>
+</P>
+</P>
+</DD>
+</DL>
+
+<A NAME="OctetString"></A>
+<P>
+<DL>
+<DT>class <STRONG>OctetString</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instance of this class represent primitive ASN.1 OCTETSTRING object used
+in RFC 1902 context. This is a subclass of
+<A HREF="rfc1155.html#OctetString">rfc1155.OctetString</A> class, with the
+following deviations from the base class:
+<UL>
+<LI>Size constraint is set to (0, 65535) octets
+</UL>
+</P>
+</P>
+</DD>
+</DL>
+
+<A NAME="ObjectIdentifier"></A>
+<P>
+<DL>
+<DT>class <STRONG>ObjectIdentifier</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instance of this class represent primitive ASN.1 OBJECT IDENTIFIER object used
+in RFC 1902 context. This is a subclass of
+<A HREF="rfc1155.html#ObjectIdentifier">rfc1155.ObjectIdentifier</A> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="Null"></A>
+<P>
+<DL>
+<DT>class <STRONG>Null</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instance of this class represent primitive ASN.1 NULL object used
+in RFC 1902 context. This is a subclass of
+<A HREF="rfc1155.html#Null">rfc1155.Null</A> class.
+</P>
+</DD>
+</DL>
+
+<P>
+The following classes implement constructed, universal ASN.1 types used in
+RFC 1902 context.
+</P>
+
+<A NAME="Sequence"></A>
+<DL>
+<DT>class <STRONG>Sequence</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent primitive, constructed ASN.1 SEQUENCE type
+used in RFC 1902 context. This is a subclass of 
+<A HREF="rfc1155.html#Sequence">rfc155.Sequence</A> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="SequenceOf"></A>
+<DL>
+<DT>class <STRONG>SequenceOf</STRONG>([<STRONG>args</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent primitive, constructed ASN.1 SEQUENCE OF type
+used in RFC 1902 context. This is a subclass of
+<A HREF="rfc1155.html#Sequence">rfc155.Sequence</A> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="Choice"></A>
+<DL>
+<DT>class <STRONG>Choice</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent primitive, constructed ASN.1 CHOICE type
+used in RFC 1902 context. This is a subclass of
+<A HREF="rfc1155.html#Choice">rfc155.Choice</A> class.
+</P>
+</DD>
+</DL>
+
+<P>
+The following classes implement simple, application-wide ASN.1 types:
+</P>
+
+<A NAME="IpAddress"></A>
+<P>
+<DL>
+<DT>class <STRONG>IpAddress</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent application-wide ASN.1 type
+used for handling IP numbers in RFC 1902 context. This is a subclass of
+<A HREF="rfc1155.html#IpAddress">rfc1155.IpAddress</A>
+class.
+</P>
+</DD>
+</DL>
+
+<A NAME="Counter32"></A>
+<DL>
+<DT>class <STRONG>Counter32</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent application-wide ASN.1 type
+used for handling wrapping counters in RFC 1902 context. This is a subclass
+of <A HREF="rfc1155.html#IpAddress">rfc1155.Counter</A> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="Gauge32"></A>
+<DL>
+<DT>class <STRONG>Gauge32</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent application-wide ASN.1 type
+used for handling non-wrapping counters in RFC 1902 context. This is a
+subclass of <A HREF="rfc1155.html#Gauge">rfc1155.Gauge</A> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="Unsigned32"></A>
+<DL>
+<DT>class <STRONG>Unsigned32</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent application-wide ASN.1 type
+used for handling 32-bit unsigned integers in RFC 1902 context. This is a
+subclass of <A HREF="#Gauge">Gauge</A> class.
+</P>
+</DD>
+</DL>
+
+
+<A NAME="TimeTicks"></A>
+<DL>
+<DT>class <STRONG>TimeTicks</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent application-wide ASN.1 type
+used for handling time intervals in RFC 1902 context. This is a
+subclass of <A HREF="rfc1155.html#TimeTicks">rfc1155.TimeTicks</A> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="Opaque"></A>
+<DL>
+<DT>class <STRONG>Opaque</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent application-wide ASN.1 type
+used for passing an arbitrary syntax inside an OCTET STRING in RFC 1902
+context. This is a subclass of <A HREF="rfc1155.html#Opaque">
+rfc1155.Opaque</A> class, with the following deviations from the
+base class:
+<UL>
+<LI>ASN.1 tag category set to 'IMPLICIT'
+</UL>
+</P>
+</DD>
+</DL>
+
+<A NAME="Counter64"></A>
+<DL>
+<DT>class <STRONG>Counter64</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent application-wide ASN.1 type
+used for handling 64-bit counters in RFC 1902 context. This is a subclass
+of <A HREF="rfc1155.html#IpAddress">rfc1155.Counter</A> class, with
+the following deviations from the base class:
+<UL>
+<LI>ASN.1 tag identifier set to 0x06
+<LI>Value range constraint set to (0, 18446744073709551615L)
+</UL>
+</P>
+</DD>
+</DL>
+
+<P>
+The following classes implement constructed, application-wide ASN.1 types
+used in RFC 1902 context.
+</P>
+
+<A NAME="ObjectName"></A>
+<DL>
+<DT>class <STRONG>ObjectName</STRONG>([<STRONG>value</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent application-wide ASN.1 type
+used for names of MIB objects in RFC 1902 context. This is a subclass of
+<A HREF="#ObjectIdentifier">ObjectIdentifier</A> class.
+</P>
+</DD>
+</DL>
+
+<A NAME="SimpleSyntax"></A>
+<DL>
+<DT>class <STRONG>SimpleSyntax</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent a subset of allowed universal ASN.1 types used
+by SNMP v.2c SMI (RFC 1902). This is a subclass of <A HREF="#Choice">Choice</A>
+class, with the following deviations from the base class:
+<UL>
+<LI>Embedded value name is restricted to either of 'integer_value',
+'string_value' and 'objectID_value' and type restricted to either of
+<A HREF="#Integer">Integer</A>, <A HREF="#OctetString">OctetString</A> and
+<A HREF="#ObjectIdentifier">ObjectIdentifier</A> respectively.
+</UL>
+</P>
+</DD>
+</DL>
+
+<A NAME="ApplicationSyntax"></A>
+<DL>
+<DT>class <STRONG>ApplicationSyntax</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent a subset of allowed application-wide
+ASN.1 types used by SNMP v.2c SMI (RFC 1902). This is a subclass of
+<A HREF="#Choice">Choice</A> class, with the following deviations from
+the base class:
+<UL>
+<LI>Embedded value name is restricted to either of 'ipAddress_value',
+'counter_value', 'timeticks_value', 'arbitrary_value', 'big_counter_value',
+and 'unsigned_integer_value' while type restricted to either of
+<A HREF="#IpAddress,">IpAddress,</A>, <A HREF="#Counter32">Counter32</A>,
+<A HREF="#TimeTicks">TimeTicks</A>, <A HREF="#Opaque">Opaque</A>,
+<A HREF="#Counter64">Counter64</A> and <A HREF="#Unsigned32">Unsigned32</A>
+or <A HREF="#Gauge32">Gauge32</A> objects respectively.
+</UL>
+</P>
+</DD>
+</DL>
+
+<A NAME="ObjectSyntax"></A>
+<DL>
+<DT>class <STRONG>ObjectSyntax</STRONG>([<STRONG>**kwargs</STRONG>])</DT>
+<DD>
+<P>
+Instances of this class represent syntax of MIB objects used by SNMP 
+v.2c SMI (RFC 1902). This is a subclass of <A HREF="#Choice">Choice</A>
+class, with the following deviations from the base class:
+<UL>
+<LI>Embedded value name is restricted to either of 'simple_syntax' or
+'application_syntax' while type restricted to either of
+<A HREF="#SimpleSyntax">SimpleSyntax</A>,
+<A HREF="#ApplicationSyntax">ApplicationSyntax</A> objects respectively.
+</UL>
+</P>
+</DD>
+</DL>
+
+<P>
+Methods of the above classes may raise exceptions based on
+<STRONG>error.SnmpError</STRONG> base class as well as
+<A HREF="../asn1/error.html">ASN.1</A> and <A HREF="../asn1/ber/error.html">
+BER</A> specific exceptions.
+</P>
+
+<HR><STRONG>Subsections</STRONG>
+
+<A NAME="Subsections"></A>
+
+<P>
+<UL>
+<LI><A HREF="rfc1902-example.html">
+Example of rfc1902 module usage</A>
+</UL>
+</P>
+
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

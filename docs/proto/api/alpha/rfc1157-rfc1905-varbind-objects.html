@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Protocol: API: Alpha: VarBind API methods</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+
+<H3>
+Alpha API to VarBind objects
+</H3>
+
+<P>
+Alpha API implements the following API methods to the
+<A HREF="../../rfc1157.html#VarBind">VarBind</A> object.
+</P>
+
+<A NAME="apiAlphaGetOidVal"></A>
+<DL>
+<DT><STRONG>apiAlphaGetOidVal</STRONG>()</DT>
+<DD>
+<P>
+Returns a tuple of (<STRONG>name</STRONG>, <STRONG>value</STRONG>) objects,
+where <STRONG>name</STRONG> is an
+<A HREF="../../rfc1155.html#ObjectName">ObjectName</A> instance and
+<STRONG>value</STRONG> is any of simple
+<A HREF="../../rfc1155.html">rfc1155</A>
+/
+<A HREF="../../rfc1902.html">rfc1902</A> objects.
+</P>
+</DD>
+</DL>
+
+<A NAME="apiAlphaSetOidVal"></A>
+<DL>
+<DT><STRONG>apiAlphaSetOidVal</STRONG>((<STRONG>name</STRONG>,
+<STRONG>value</STRONG>))</DT>
+<DD>
+<P>
+Stores <STRONG>name</STRONG> and/or <STRONG>value</STRONG> at the 
+<A HREF="../../rfc1157.html#VarBind">VarBind</A> object, where
+<STRONG>name</STRONG> must be either an 
+<A HREF="../../rfc1155.html#ObjectName">ObjectName</A> instance
+or an ASN.1 Object Identifier value suitable for
+<A HREF="../../rfc1155.html#ObjectName">ObjectName</A> initialization,
+and <STRONG>value</STRONG> is any simple
+<A HREF="../../rfc1155.html">rfc1155</A>
+/
+<A HREF="../../rfc1902.html">rfc1902</A> object.
+If Python "None" object is passed as <STRONG>name</STRONG> and/or
+<STRONG>value</STRONG> parameters, corresponding <STRONG>VarBind</STRONG>
+component would not be modified.
+</P>
+</DD>
+</DL>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>

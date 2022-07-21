@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>PySNMP: Transport Mappings: UDP/IP: Introduction</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" TEXT="#000000"
+      LINK="#0000bb"  VLINK="#551a8b" ALINK="#ff0000">
+<H3>
+SNMP over UDP/IP
+</H3>
+<P>
+The <A HREF="http://www.ietf.org/rfc/rfc1157.txt">RFC 1157</A> (for v.1)
+and <A HREF="http://www.ietf.org/rfc/rfc1449.txt">RFC 1449</A> (for v.2c)
+defines the use of UDP/IP as a preferred network transport for running
+SNMP protocol. The <B>pysnmp.mapping.udp</B> sub-package implements 
+UDP/IP-based transport facilities over BSD sockets.
+</P>
+
+<P>
+Modules of this package provide an abstract network transport facilities,
+that is, they deal with abstract data items, have nothing to know about the
+SNMP context and have no dependency of
+<A HREF="../../proto/index.html">SNMP protocol modules</A>.
+</P>
+
+<P>
+In the following modules, two kinds of I/O engines is normally present -- one
+to operate in client mode (or <STRONG>Manager</STRONG> role, in SNMP terms),
+and another, playing <STRONG>Agent</STRONG> (or server) role.
+</P>
+
+<P>
+<UL>
+<LI>Network transports
+<UL>
+<LI><A HREF="role.html">Synchronous I/O engine</A>
+<LI><A HREF="asynrole.html">PySNMP binding to Python asyncore module</A>
+</UL>
+<LI>Error handling
+<UL>
+<LI><A HREF="error.html">Package-level exceptions</A>
+</UL>
+</UL>
+</P>
+
+<HR>
+
+<ADDRESS>
+ilya@glas.net
+</ADDRESS>
+
+</BODY>
+</HTML>
