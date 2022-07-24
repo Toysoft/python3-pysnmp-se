@@ -263,7 +263,7 @@ class CompatBase:
     def get(self, key, default):
         """Get values by key with default
         """
-        if self.has_key(key):
+        if key in self:
             return self[key]
 
         return default

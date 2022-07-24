@@ -439,7 +439,7 @@ class SNMP_Session(CompatBase):
             self.pendingReqs[req] = time() + self.timeout
 
             # Register pending session
-            if not pendingSessions.has_key(self):
+            if not self in pendingSessions:
                 pendingSessions[self] = 1
 
             # Send request message

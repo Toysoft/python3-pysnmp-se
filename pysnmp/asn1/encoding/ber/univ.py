@@ -150,7 +150,7 @@ class ObjectIdentifierMixIn(base.SimpleAsn1Object):
            Encode ASN.1 Object ID into octet stream.
         """
         try:
-            if cls.BER_FORWARD_CACHE.has_key( oid ):
+            if oid in cls.BER_FORWARD_CACHE:
                 return cls.BER_FORWARD_CACHE[ oid ]
         except TypeError as err:
             pass
@@ -207,7 +207,7 @@ class ObjectIdentifierMixIn(base.SimpleAsn1Object):
            
            Decode octet stream into ASN.1 Object ID
         """
-        if cls.BER_BACKWARD_CACHE.has_key( input ):
+        if input in cls.BER_BACKWARD_CACHE:
             return cls.BER_BACKWARD_CACHE[ input ]
         oid = []
         index = 0

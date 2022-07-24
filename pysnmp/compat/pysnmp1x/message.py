@@ -217,14 +217,14 @@ class message(ber.ber):
                                      % (rsp['community'].get(),self.community))
 
         # Retain curios check %-/
-        if mtype == 'GETRESPONSE' and rsp['pdu'].has_key('get_response'):
+        if mtype == 'GETRESPONSE' and 'get_response' in rsp['pdu']:
             pass
-        elif mtype == 'GETREQUEST' and rsp['pdu'].has_key('get_request'):
+        elif mtype == 'GETREQUEST' and 'get_request' in rsp['pdu']:
             pass
-        elif mtype == 'SETREQUEST' and rsp['pdu'].has_key('set_request'):
+        elif mtype == 'SETREQUEST' and 'set_request' in rsp['pdu']:
             pass
         elif mtype == 'GETNEXTREQUEST' and \
-             rsp['pdu'].has_key('get_next_request'):
+             'get_next_request' in rsp['pdu']:
             pass
         else:
             raise error.BadPDUType('Unexpected PDU type %s/%s' %
@@ -377,7 +377,7 @@ class message(ber.ber):
             raise error.BadCommunity('Unmatched SNMP community names: %s/%s' \
                                      % (req['community'].get(),self.community))
 
-        if not req['pdu'].has_key('trap'):
+        if not 'trap' in req['pdu']:
             raise error.BadPDUType('Unexpected PDU type %s' % req['pdu'].keys()[0])
 
         # Build encoded_oids and encoded_vals

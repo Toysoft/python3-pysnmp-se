@@ -305,7 +305,7 @@ class FixedTypeAsn1Object(StructuredAsn1Object):
     def has_key(self, key):
         """Return true if key exists
         """
-        return self._components.has_key( key )
+        return key in self._components
     
     def values(self):
         """Return a list of values
@@ -329,7 +329,7 @@ class FixedTypeAsn1Object(StructuredAsn1Object):
     def get(self, key, default=None):
         """Lookup by key with default
         """
-        if self.has_key(key):
+        if key in self:
             return self[key]
         else:
             return default
@@ -373,7 +373,7 @@ class RecordTypeAsn1Object(FixedTypeAsn1Object):
             self._subtype_constraint(value)
 
         # XXX
-        if self._components.has_key( key ):
+        if key in self._components:
             if not isinstance(value, self._components[key].__class__):
                 raise error.BadArgumentError(
                     'Component type mismatch: %s vs %s' % (
@@ -405,7 +405,7 @@ class ChoiceTypeAsn1Object(FixedTypeAsn1Object):
     def componentFactoryBorrow(self, key):
         if not hasattr(self, '_componentCache'):
             self._componentCache = {}
-        if not self._componentCache.has_key(key):
+        if not key in self._componentCache:
             try:
                 self._componentCache[key] = self.choiceComponents[\
                     self.choiceNames.index(key)]()
@@ -581,7 +581,7 @@ class VariableTypeAsn1Object(StructuredAsn1Object):
             self._componentCache = {}
         for val in vals:
             valId = id(val)
-            if self._componentCache.has_key(valId):
+            if valId in self._componentCache:
                 if self._componentCache[valId] is None:
                     self._componentCache[valId] = val
                 else:

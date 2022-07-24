@@ -563,7 +563,7 @@ class ObjectIdentifier(base.SimpleAsn1Object):
         if len(newOid) - 1 == idx:
             self.childNodes[newOid[idx]] = newNode
             return
-        if not self.childNodes.has_key(newOid[idx]):
+        if not newOid[idx] in self.childNodes:
             self.childNodes[newOid[idx]] = ObjectIdentifier(self.get() + newOid[idx:idx+1].get())
         childNode = self.childNodes[newOid[idx]]
         self.resolveKeyOid(childNode).attachNode(newNode, newOid, idx + 1)

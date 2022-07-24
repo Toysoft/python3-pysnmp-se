@@ -246,7 +246,7 @@ class ber(wrapexp.Base):
         """Compatibility method: decode any of supported ASN.1 value
         """
         obj = rfc1155.ObjectSyntax(); obj.decode(octetStream)
-        if obj.has_key('address'):
+        if 'address' in obj:
             return obj.values()[0].values()[0].values()[0].get()
         else:
             return obj.values()[0].values()[0].get()
